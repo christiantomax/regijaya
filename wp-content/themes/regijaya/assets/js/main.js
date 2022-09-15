@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Change Text Color When Header Sticky (Dark Mode)
      */
-     const selectNav = document.querySelector('#navbar');
+     const selectNav = document.querySelector('#nav');
      if (selectNav) {
          document.addEventListener('scroll', () => {
              window.scrollY > scrollLimit ? selectNav.classList.add('sticky') : selectNav.classList.remove('sticky');
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.querySelector('body').classList.toggle('mobile-nav-active');
 
-        this.classList.toggle('bi-list');
+        this.classList.toggle('bi-grid-3x3-gap-fill');
         this.classList.toggle('bi-x');
         });
     }
@@ -48,17 +48,16 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     let homeSwipper = new Swiper('.home-slider', {
         direction: 'vertical',
-        speed: 600,
+        speed: 300,
         loop: true,
         effect: 'fade',
         autoplay: {
-            delay: 5000,
+            delay: 9000,
             disableOnInteraction: false
         },
         slidesPerView: 'auto',
         pagination: {
             el: '.swiper-pagination',
-            type: 'bullets',
             clickable: true
         }
     });
@@ -67,11 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
      * Home Brige Slider
      */
      let brigeSwipper = new Swiper('.home-bridge-slider', {
-        speed: 600,
+        direction: 'horizontal',
+        speed: 300,
         loop: true,
         effect: 'fade',
         autoplay: {
-            delay: 5000,
+            delay: 9000,
             disableOnInteraction: false
         },
         slidesPerView: 'auto',

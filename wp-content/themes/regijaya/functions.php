@@ -31,6 +31,8 @@ if(! function_exists( 'regijaya_setup' )) :
             wp_enqueue_style('regijaya-swiper', get_template_directory_uri().'/inc/cdn/swiper/swiper-bundle.min.css', array(), '8.3.1', 'all');
             wp_enqueue_style('regijaya-variables', get_template_directory_uri()."/assets/css/variables.css", array(), $version, 'all');
             wp_enqueue_style('regijaya-style', get_template_directory_uri()."/assets/css/main.css", array(), $version, 'all');
+            wp_enqueue_style('regijaya-style-desktop', get_template_directory_uri()."/assets/css/desktop.css", array('regijaya-style'), $version, 'all');
+            wp_enqueue_style('regijaya-style-mobile', get_template_directory_uri()."/assets/css/mobile.css", array('regijaya-style'), $version, 'all');
         
         }
 
@@ -53,6 +55,30 @@ if(! function_exists( 'regijaya_setup' )) :
         // REGISTER SCRIPTS - END
 
         // REGISTER NAV - START
+        function regijaya_register_menus() {
+
+            //key : menu location name | value : title
+            register_nav_menus (
+                array(
+                    'regijaya_header' => 'Navbar',
+                    'regijaya_footer1' => 'Footer1',
+                    'regijaya_footer2' => 'Footer2'
+                )
+            );
+
+        }
+
+        add_action('init', 'regijaya_register_menus');
+
+        function add_additional_class_on_li($classes, $item, $args) {
+            if(isset($args->add_li_class)) {
+                $classes[] = $args->add_li_class;
+            }
+            return $classes;
+        }
+
+        add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
+
         // REGISTER NAV - END
 
         //GUTTENBERG - START

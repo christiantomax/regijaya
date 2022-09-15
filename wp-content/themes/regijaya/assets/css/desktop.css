@@ -1,0 +1,175 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+@media (min-width:992px) {
+    /* h1 {
+      font-size:2.5rem;
+    } */
+
+    .mobile {
+      display: none;
+    }
+}
+
+
+/*--------------------------------------------------------------
+# Desktop Navigation 
+--------------------------------------------------------------*/
+@media (min-width:992px){
+  .navbar {
+    padding: 0;
+    position: relative;
+  }
+
+  .navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+
+  .navbar li {
+    display: inline-block;
+    position: relative;
+  }
+
+  .navbar>ul>li {
+    white-space: nowrap;
+  }
+  
+  .navbar .light-mode a,
+  .navbar .light-mode a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    font-family: var(--font-default);
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(var(--color-white-rgb));
+    white-space: nowrap;
+    transition: 0.3s;
+    position: relative;
+  }
+
+  .navbar .dark-mode a,
+  .navbar .dark-mode a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    font-family: var(--font-default);
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(var(--color-black-rgb));
+    white-space: nowrap;
+    transition: 0.3s;
+    position: relative;
+  }
+
+  .sticked .dark-mode a {
+    color: var(--color-white);
+  }
+
+  .navbar ul .dark-mode a:after,
+  .navbar ul .light-mode a:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-primary);
+    transition: transform 0.3s ease-out;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+  }
+
+  .navbar .dark-mode a:hover:after,
+  .navbar .light-mode a:hover:after,
+  .navbar .active:after {
+    visibility: visible;
+  }
+
+  .navbar .dark-mode:hover a:after,
+  .navbar .light-mode:hover a:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .navbar a:hover,
+  .navbar .active,
+  .navbar .active:focus,
+  .navbar .dark-mode:hover a,
+  .navbar .light-mode:hover a {
+    color: var(--color-primary);
+  }
+
+  .navbar .current-menu-item a {
+    color: var(--color-primary) !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Sections Tentang Kami
+--------------------------------------------------------------*/
+@media (min-width: 992) {
+  /* .map-about {
+    height: 50vh;
+    overflow: hidden;
+  } */
+
+}
+
+/*--------------------------------------------------------------
+# Sections Klien
+--------------------------------------------------------------*/
+@media (min-width: 992px) {
+    h1#klien-header-text{
+        font-size: 4rem !important;
+    }
+
+    /* .klien-img {
+        min-height: 10vh;
+    } */
+      
+    .klien-content-header {
+        color: var(--color-default);
+        text-transform: uppercase !important;
+        margin-top: 1rem;
+        margin-bottom: 0;
+    }
+      
+    .klien-content-footer {
+        color: var(--color-secondary);
+        font-size: smaller;
+    }
+}
+
+/*--------------------------------------------------------------
+# Sections Kontak
+--------------------------------------------------------------*/
+@media (min-width: 992px) {
+  .kontak-header {
+    text-align: right!important;
+  }
+
+  
+  .kontak-img {
+    position: relative;
+    min-height: 70vh !important;
+    height: 70vh;
+    overflow: hidden !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+@media (min-width: 992px) {
+  .footer-legal {
+    display: flex!important;
+    justify-content: space-between!important;
+  }
+}

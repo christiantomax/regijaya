@@ -1,0 +1,227 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+@media (min-width: 320px) and (max-width: 991px) {
+    /* h1 {
+        font-size:1.5rem;
+    } */
+
+    .desktop {
+      display: none;
+    }
+}
+
+/*--------------------------------------------------------------
+# Mobile Navigation
+--------------------------------------------------------------*/
+@media (min-width: 320px) and (max-width: 991px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: calc(100% - 70px);
+    bottom: 0;
+    transition: 0.3s;
+    z-index: 9997;
+  }
+
+  .navbar ul {
+    position: absolute;
+    inset: 0;
+    padding: 10px 0;
+    margin: 0;
+    background: rgba(var(--color-default-rgb), 0.9);
+    overflow-y: auto;
+    transition: 0.3s;
+    z-index: 9998;
+  }
+
+  .navbar a,
+  .navbar a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(var(--color-white-rgb));
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+
+  .navbar a i,
+  .navbar a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+  }
+
+  .navbar a:hover,
+  .navbar .active,
+  .navbar .active:focus,
+  .navbar li:hover>a {
+    color: var(--color-secondary);
+  }
+
+  .light,
+  .sticked .dark {
+    color: var(--color-white) !important;
+  }
+
+  .dark {
+    color: var(--color-black) !important;
+  }
+
+  .mobile-nav-toggle {
+    display: block !important;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 0;
+    transition: 0.5s;
+    position: fixed;
+    top: 20px;
+    z-index: 9999;
+    right: 20px;
+  }
+
+  .mobile-nav-toggle.bi-x {
+    color: var(--color-white);
+  }
+
+  .mobile-nav-active {
+    overflow: hidden;
+    z-index: 9995;
+    position: relative;
+  }
+
+  .mobile-nav-active .navbar {
+    left: 0;
+  }
+
+  .mobile-nav-active .navbar:before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(var(--color-default-rgb), 0.8);
+    z-index: 9996;
+  }
+}
+
+/*--------------------------------------------------------------
+# Sections Home
+--------------------------------------------------------------*/
+@media (min-width: 320px) and (max-width: 991px) {
+  .layanan {
+    margin-top: 3rem !important;
+  }
+
+  .btn-layanan {
+    text-align: center;
+  }
+
+  .home-klien {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  .klien-section-header {
+    margin-bottom: 0 !important;
+    margin-top: 0!important;
+    height: auto !important;
+  }
+
+  .klien-header-text {
+    margin-top:0 !important;
+    margin-bottom: 3rem !important;
+  }
+
+}
+
+/*--------------------------------------------------------------
+# Sections Tentang Kami
+--------------------------------------------------------------*/
+@media (min-width: 320px) and (max-width: 991px) {
+  /* .map-about {
+    height: 50vh;
+    overflow: hidden;
+  }  */
+
+  .img-misi {
+    display: flex!important;
+    align-items: end!important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Sections Klien
+--------------------------------------------------------------*/
+@media (min-width: 320px) and (max-width: 991px) {
+  #klien-header-text{
+      font-size: 2.5rem !important;
+  }
+
+  /* .klien-img {
+    min-height: 5vh;
+  } */
+
+  .klien-content-header {
+    color: var(--color-default);
+    text-transform: uppercase !important;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-size: small;
+  }
+  
+  .klien-content-footer {
+    color: var(--color-secondary);
+    font-size: x-small;
+  }
+}
+
+/*--------------------------------------------------------------
+# Sections Kontak
+--------------------------------------------------------------*/
+@media (min-width: 320px) and (max-width: 991px) {
+  .kontak-header {
+    text-align: center!important;
+  }
+
+  .kontak-img {
+    position: relative;
+    overflow: hidden !important;
+  }
+
+  .kotak-content {
+    text-align: center;
+  }
+
+  .btn-submit-kotak {
+    width: 100%;
+  }
+}
+
+@media (min-width: 320px) and (max-width : 500px) {
+  .btn-map {
+    font-size: x-small;
+  }
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+@media (min-width: 320px) and (max-width: 991px) {
+  .list-footer {
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: 0.25rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .logo-footer {
+    width: 50%;
+  }
+}
