@@ -1,15 +1,63 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     var scrollLimit = 50;
+
     /**
      * Sticky header on scroll
      */
     const selectHeader = document.querySelector('#header');
     if (selectHeader) {
         document.addEventListener('scroll', () => {
-            window.scrollY > scrollLimit ? selectHeader.classList.add('sticked') : selectHeader.classList.remove('sticked');
+            if(window.scrollY > scrollLimit) {
+                selectHeader.classList.add('sticked');
+                $('#logo').attr("src", logo_light);
+            }else {
+                var url = "";
+
+                selectHeader.classList.remove('sticked');
+                slug == "home" || slug == "klien" ? url = logo_light : url = logo_dark;
+                
+                $('#logo').attr("src", url);
+
+            }
         });
     }
+
+    /**
+     * Apppend Language to Navbar Mobile
+     */
+    if (window.innerWidth <= 991) {
+        var html = '<li>' +
+            '<div class="d-flex align-items-left navbar-lang-menu">' +
+                '<form method="post" class="me-3">' +
+                    '<input type="hidden" name="options" value="id">' +
+                    '<input class="nav-lang-button" type="submit" value="ID">' +
+                '</form> <span class="delimeter"> | </span>' +
+                '<form method="post" class="ms-3">' +
+                    '<input type="hidden" name="options" value="eng">' +
+                    '<input class="nav-lang-button" type="submit" value="EN">' +
+                '</form>' + 
+            '</div>' +
+        '</li>';
+        
+        $( "#menu-navbar-"+lang ).append( html );
+    }else {
+        var html = '<li>' +
+           '<div class="d-flex align-items-left navbar-lang-menu ' + mode + '">' +
+                '<form method="post" class="me-1">' +
+                    '<input type="hidden" name="options" value="id">' +
+                    '<input class="nav-lang-button" type="submit" value="ID">' +
+                '</form> <span class="delimeter">|</span> ' +
+                '<form method="post" class="ms-1">' +
+                    '<input type="hidden" name="options" value="eng">' +
+                    '<input class="nav-lang-button" type="submit" value="EN">' +
+                '</form>' +
+            '</div>' +
+        '</li>';
+        
+        $( "#menu-navbar-"+lang ).append( html );
+    }
+    
 
     /**
      * Change Text Color When Header Sticky (Dark Mode)
@@ -27,21 +75,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileNavToogle = document.querySelector('.mobile-nav-toggle');
     if (mobileNavToogle) {
         mobileNavToogle.addEventListener('click', function(event) {
-        event.preventDefault();
+            event.preventDefault();
 
-        document.querySelector('body').classList.toggle('mobile-nav-active');
+            document.querySelector('body').classList.toggle('mobile-nav-active');
 
-        this.classList.toggle('bi-grid-3x3-gap-fill');
-        this.classList.toggle('bi-x');
+            const mobileNavActive = document.getElementsByClassName('mobile-nav-active');;
+            if(mobileNavActive) $('#logo').attr("src", logo_light);
+            else {
+                slug == "home" || slug == "klien" ? url = logo_light : url = logo_dark;
+                        
+                $('#logo').attr("src", url);
+            }
         });
     }
-
+    
     /**
      * Moving Text on scroll (Page Client)
      */
-    $(document).on('scroll', function() {
-            $('#klien-header-text').css({'transform' : 'translateY(' + window.scrollY + 'px)'});
-    });
+    if(slug == 'klien'){
+        $(document).on('scroll', function() {
+            if (window.innerWidth > 991) {
+                $('.klien-header-container').css({'transform' : 'translateY(' + window.scrollY + 'px)'});
+            }else {
+                var header = document.getElementById("klien-header-text-mobile");
+                var sticky = header.offsetTop - 40;
+    
+                if (window.pageYOffset >= sticky) {
+                    header.classList.add("klien-header-text-mobile");
+                    } else {
+                    header.classList.remove("klien-header-text-mobile");
+                    }
+            }
+        });
+    }
+    
 
     /**
      * Home Slider

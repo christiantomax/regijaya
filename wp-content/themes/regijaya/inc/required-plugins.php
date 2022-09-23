@@ -2,9 +2,9 @@
 
 require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
 
-add_action( 'tgmpa_register', 'regijaya_register_required_plugins' );
+add_action( 'tgmpa_register', 'qubickatdawn_register_required_plugins' );
 
-function regijaya_register_required_plugins() {
+function qubickatdawn_register_required_plugins() {
 
 	$plugins = array(
 		array(
@@ -17,7 +17,7 @@ function regijaya_register_required_plugins() {
 	);
 
 	$config = array(
-		'id'           => 'regijaya',                 // Unique ID for hashing notices for multiple instances of TGMPA.
+		'id'           => 'qubickatdawn',                 // Unique ID for hashing notices for multiple instances of TGMPA.
 		'default_path' => '',                      // Default absolute path to bundled plugins.
 		'menu'         => 'tgmpa-install-plugins', // Menu slug.
 		'parent_slug'  => 'themes.php',            // Parent menu slug.

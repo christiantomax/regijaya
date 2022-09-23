@@ -1,49 +1,176 @@
 <?php
+	global $post;
 
-	// function meta_admin( $meta_boxes ) {
-	//     $prefix = 'qubick';
-	//     $post_id = $_GET['post'];
-	//     $slug = basename(get_permalink($post_id));
+	// METABOX GENERATE - START
+	require_once get_template_directory().'/inc/meta/meta_posttype_header_footer.php';
+	require_once get_template_directory().'/inc/meta/meta_posttype_home.php';
+	require_once get_template_directory().'/inc/meta/meta_posttype_about_us.php';
+	require_once get_template_directory().'/inc/meta/meta_posttype_klien.php';
+	require_once get_template_directory().'/inc/meta/meta_posttype_contact_us.php';
+	require_once get_template_directory().'/inc/meta/meta_posttype_kebijakan.php';
+	// METABOX GENERATE - END
 
-	//     if ($post_id == get_option('page_on_front')) {
-	//     	return meta_admin_home($prefix);
-	//     }
+	// METABOX FILTER - START
+	add_filter( 'rwmb_meta_boxes',function ( $meta_boxes ) {
 
+		foreach ($meta_boxes as $k => $meta_box) {
+			//Header Footer
+			if( $meta_box['id'] === 'header_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'header-footer') {
+						unset( $meta_boxes[$k] );
+						echo $meta_boxes[$k];
+					}
+				}
+			}
+			if( $meta_box['id'] === 'footer_top_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'header-footer') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
+			if( $meta_box['id'] === 'footer_bottom_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'header-footer') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
 
-	    
-	//     return false;
+			//Home
+			if( $meta_box['id'] === 'home_slider1_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'home') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
+			if( $meta_box['id'] === 'home_about_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'home') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
+			if( $meta_box['id'] === 'home_service_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'home') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
+			if( $meta_box['id'] === 'home_slider2_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'home') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
+			if( $meta_box['id'] === 'home_product_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'home') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
+			if( $meta_box['id'] === 'home_caption_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'home') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
+			if( $meta_box['id'] === 'home_client_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'home') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
 
-	// }
+			//About Us
+			if( $meta_box['id'] === 'about_us_about_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'about') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
+			if( $meta_box['id'] === 'about_us_visi_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'about') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
+			if( $meta_box['id'] === 'about_us_misi_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'about') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
+			if( $meta_box['id'] === 'about_us_prioritas_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'about') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
+			if( $meta_box['id'] === 'about_us_pekerja_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'about') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
+			if( $meta_box['id'] === 'about_us_proyek_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'about') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
+			if( $meta_box['id'] === 'about_us_sertifikat_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'about') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
 
+			//Client
+			if( $meta_box['id'] === 'klien_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'klien') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
 
-	// function meta_admin_home($prefix){
+			//Contact Us
+			if( $meta_box['id'] === 'contact_us_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'kontak') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
 
-	// 	$meta_boxes[] = [
-	//         'title'      => esc_html__( 'Bebe Studio Field', 'english' ),
-	//         'id'         => 'home_admin',
-	//         'post_types' => ['page'],
-	//         'context'    => 'after_title',
-	//         'autosave'   => true,
-	//         'fields'     => [
-	//             [
-	//                 'type' 			   => 'single_image',
-	//                 'name'             => esc_html__( 'Hover Image for "Young & Dynamic"', 'english' ),
-	//                 'id'               => $prefix . 'hover_image_hero_1',
-	//             ],
-	//             [
-	//                 'type'             => 'image_advanced',
-	//                 'name'             => esc_html__( 'Hover Image for "Creative Studio"', 'english' ),
-	//                 'id'               => $prefix . 'hover_image_hero_2',
-	//                 'max_file_uploads' => 1,
-	//                 'force_delete'     => true,
-	//             ],
-	//         ],
-	//     ];
+			//Kebijakan
+			if( $meta_box['id'] === 'kebijakan_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'kebijakan') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
+			
 
-	//     return $meta_boxes;
-
-	// }
-
-	// add_filter( 'rwmb_meta_boxes', 'meta_admin' );
+		}
+		return $meta_boxes;
+	}) ;
+	// METABOX FILTER - END
 
 ?>

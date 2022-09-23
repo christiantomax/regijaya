@@ -68,8 +68,19 @@
     position: relative;
   }
 
-  .sticked .dark-mode a {
+  .sticked .dark-mode a,
+  .sticked .dark .delimeter,
+  .sticked .dark .nav-lang-button {
     color: var(--color-white);
+  }
+
+  .light .delimeter,
+  .light .nav-lang-button {
+    color: var(--color-white);
+  }
+
+  .nav-lang-button {
+    font-size: 13px;
   }
 
   .navbar ul .dark-mode a:after,
@@ -109,6 +120,7 @@
   .navbar .current-menu-item a {
     color: var(--color-primary) !important;
   }
+
 }
 
 /*--------------------------------------------------------------
@@ -144,6 +156,12 @@
     .klien-content-footer {
         color: var(--color-secondary);
         font-size: smaller;
+    }
+
+    .klien-header-container {
+      overflow: hidden;
+      transform: translateY(0px);
+      transition: transform 0.2s linear;
     }
 }
 

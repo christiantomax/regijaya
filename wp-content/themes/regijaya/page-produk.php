@@ -8,6 +8,4 @@
 </div>
 <!-- SECTION END -->  
 
-<?php include('templates/footer-top.php') ?>
-
 <?php get_footer() ?>

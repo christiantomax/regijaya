@@ -60,9 +60,10 @@ if(! function_exists( 'regijaya_setup' )) :
             //key : menu location name | value : title
             register_nav_menus (
                 array(
-                    'regijaya_header' => 'Navbar',
-                    'regijaya_footer1' => 'Footer1',
-                    'regijaya_footer2' => 'Footer2'
+                    'regijaya_header_id' => 'Navbar ID',
+                    'regijaya_header_eng' => 'Navbar ENG',
+                    'regijaya_footer_id' => 'Footer ID',
+                    'regijaya_footer_eng' => 'Footer ENG'
                 )
             );
 
@@ -99,9 +100,18 @@ if(! function_exists( 'regijaya_setup' )) :
         
     }
 endif;
-    //REGIJAYA SETUP - END
+//REGIJAYA SETUP - END
 
 add_action( 'after_setup_theme', 'regijaya_setup' );
 
+//SESSION - START
+add_action('init', 'start_session', 1);
+
+function start_session() {
+    if(!session_id()) {
+        session_start();
+    }
+}
+//SESSION - END
 
 ?>

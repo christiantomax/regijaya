@@ -128,12 +128,28 @@ h1 {
 }
 
 /*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+.nav-lang-button {
+  border: 0 !important;
+  background-color: transparent;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+.navbar-lang-menu {
+  padding: 14px 20px !important;
+}
+
+/*--------------------------------------------------------------
 # Sections Home
 --------------------------------------------------------------*/
 .swiper-slide {
-  background-position: center;
-  background-size: cover;
-  position: relative;
+  background-position: center !important;
+  background-size: cover !important;
+  position: relative !important;
+  background-repeat: no-repeat;
 }
 
 /* Home Slider */
@@ -240,9 +256,9 @@ h1 {
 }
 
 .home-caption {
-  background:linear-gradient(rgba(var(--color-primary-rgb), 0.8), rgba(var(--color-primary-rgb), 0.8)), url(../img/footer-bg.jpg) fixed center center;
-  background-position: center center;
-  background-size: cover;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
   position: relative;
   min-height: 60vh !important;
   height: 60vh;
@@ -293,6 +309,11 @@ h1 {
   margin-bottom: 5%;
 }
 
+#kebijakan-logo {
+  background-repeat: no-repeat !important;
+  background-position: right bottom !important;
+}
+
 /*--------------------------------------------------------------
 # Sections Tentang Kami
 --------------------------------------------------------------*/
@@ -321,6 +342,7 @@ h1 {
   margin:auto;
   padding-top: 45%;
   padding-bottom: 45%;
+  text-transform: uppercase !important;
 }
 
 .square-img-wrapper {
@@ -345,20 +367,19 @@ h1 {
   margin-top: -8%;
 }
 
+.misi-desc {
+  font-size: smaller;
+}
+
 /*--------------------------------------------------------------
 # Sections Klien
 --------------------------------------------------------------*/
 .klien-header {
-  background:linear-gradient(rgba(var(--color-primary-dark-rgb), 0.5), rgba(var(--color-primary-dark-rgb), 0.5)), url(../img/footer-bg.jpg) fixed center center;
-  background-position: center center;
-  background-size: cover;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
   min-height: 35vh !important;
   height: 35vh;
-  overflow: hidden;
-}
-
-.klien-header-container {
-  height: 100%;
   overflow: hidden;
 }
 
@@ -367,10 +388,10 @@ h1 {
   font-weight: 900 !important;
 } 
 
-#klien-header-text{
+/* #klien-header-text{
   transform: translateY(0px);
   transition: transform 0.2s linear;
-}
+} */
 
 .klien-content {
   text-align: center;
@@ -410,9 +431,9 @@ h1 {
 # Footer-top Section
 --------------------------------------------------------------*/
 .footer-top {
-  background:linear-gradient(rgba(var(--color-black-rgb), 0.7), rgba(var(--color-black-rgb), 0.7)), url(../img/footer-bg.jpg) fixed center center;
-  background-position: center center;
-  background-size: cover;
+  background-attachment: fixed !important;
+  background-position: center center !important;
+  background-size: cover !important;
   position: relative;
   min-height: 60vh !important;
   height: 60vh;
@@ -428,6 +449,8 @@ footer {
   font-size: small;
   padding-top: 5%;
   padding-bottom: 3%;
+  overflow: hidden;
+  position: relative;
 }
 
 a {

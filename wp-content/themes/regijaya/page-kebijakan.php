@@ -1,4 +1,27 @@
-<?php get_header();?>
+<?php get_header();
+
+$kebijakan_title = rwmb_meta('kebijakan_title_id');
+$kebijakan_description1 = rwmb_meta('kebijakan_description1_id');
+$kebijakan_description2 = rwmb_meta('kebijakan_description2_id');
+$kebijakan_description3 = rwmb_meta('kebijakan_description3_id');
+$kebijakan_description4 = rwmb_meta('kebijakan_description4_id');
+$kebijakan_description5 = rwmb_meta('kebijakan_description5_id');
+$kebijakan_description6 = rwmb_meta('kebijakan_description6_id');
+$kebijakan_image = rwmb_meta('kebijakan_image')['full_url'];
+
+if (isset($_SESSION['lang'])) {
+    if($_SESSION['lang'] == 'eng'){
+        $kebijakan_title = rwmb_meta('kebijakan_title_eng');
+        $kebijakan_description1 = rwmb_meta('kebijakan_description1_eng');
+        $kebijakan_description2 = rwmb_meta('kebijakan_description2_eng');
+        $kebijakan_description3 = rwmb_meta('kebijakan_description3_eng');
+        $kebijakan_description4 = rwmb_meta('kebijakan_description4_eng');
+        $kebijakan_description5 = rwmb_meta('kebijakan_description5_eng');
+        $kebijakan_description6 = rwmb_meta('kebijakan_description6_eng');
+    }
+}
+
+?>
 
 <!-- SECTION START -->
 <section class="kebijakan">
@@ -7,22 +30,16 @@
             <div class="col-1"></div>
             <div class="col-10">
                 <div class="section-header">
-                    <h1 class="text-center kebijakan-title">Kebijakan Mutu, Lingkungan & K3</h1>
+                    <h1 class="text-center kebijakan-title"><?=$kebijakan_title;?></h1>
                 </div>
-                <div class="section-content mx-5">
-                    <p>
-                        Sebagai perusahaan penyedia Jasa Maintanance Service & Engineering, <b>PT. Regi Jaya</b> berkeyakinan bahwa aspek mutu pelaksanaan pekerjaan keselamatan dan kesehatan kerja (K3), keamanan serta pelestari lingkungan merupakan syarat utama bagi pertumbuhan dan berkembangnya perusahaan secara berkelanjutan. Dengan memperhatikan latar belakang perusahaan dan tantangan masa depan, maka perusahaan berkomitmen melakusanakan secara konsisten pengelolaan aspek mutu, K3, keamanan, dan lingkungan yang efektif dan efisien dengan cara :<br><br>
+                <div id="kebijakan-logo" class="section-content mx-5" style="background:linear-gradient(rgba(var(--color-white-rgb), 0.9), rgba(var(--color-white-rgb), 0.9)), url(<?= $kebijakan_image;?>);">
+                    <p><?= $kebijakan_description1; ?></p>
+                    <p><?= $kebijakan_description2; ?></p>
+                    <p><?= $kebijakan_description3; ?></p>
+                    <p><?= $kebijakan_description4; ?></p>
+                    <p><?= $kebijakan_description5; ?></p>
+                    <p><?= $kebijakan_description6; ?></p>
                         
-                        1. Menerapkan Sistem Manajemen Mutu & SMK3 secara konsisten dan berkelanjutan.<br>
-
-                        2. Mengedepankan kualitas dan penyelesaian pekerjaan dengan tepat waktu sesuai dengan standard dan metode kerja dan senantiasa mematuhi peraturan perundang-undangan yang berlaku berkaitan dengan aspek mutu, K3, dan lingkungan.<br>
-
-                        3. Menumbuhkan kesadaran kerja yang mengutamakan mutu pelayanan, keamanan dalam bekerja, dan pelestarian lingkungan dalam mendukung reputasi perushaan yang baik.<br>
-
-                        4. Selalu berusaha melakukan peningkatan metode kerja dan pelayanan terbaik kepada pemberi kerja dengan menerapkan system manajemen mutu & K3 secara berkelanjutan.<br><br>
-
-                        Direktur & Staff PT. Regi Jaya bertanggung jawab emmastikan kebijakan ini disosialisasika dan diterapkan pada seluruh are proyek serta akan ditinjau secara berkala.
-                    </p>
                 </div>
             </div>
             <div class="col-1"></div>
@@ -30,7 +47,5 @@
     </div>
 </section>
 <!-- SECTION END -->
-
-<?php include('templates/footer-top.php') ?>
 
 <?php get_footer() ?>
