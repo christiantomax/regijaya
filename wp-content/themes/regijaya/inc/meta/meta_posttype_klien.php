@@ -36,18 +36,6 @@ function klien_register_meta_boxes( $meta_boxes ) {
                 'name' => esc_html__( 'Subtitle ENG', 'online-generator' ),
                 'id'   => $prefix . 'subtitle_eng',
             ],
-            [
-                'type'             => 'image_advanced',
-                'name'             => esc_html__( 'Image Kiri', 'online-generator' ),
-                'id'               => $prefix . 'image_kiri',
-                'max_file_uploads' => 6,
-            ],
-            [
-                'type'             => 'image_advanced',
-                'name'             => esc_html__( 'Image Kanan', 'online-generator' ),
-                'id'               => $prefix . 'image_kanan',
-                'max_file_uploads' => 6,
-            ],
         ],
     ];
 

@@ -1,36 +1,27 @@
 <?php
 
     if (isset($_POST['options'])) {
-
         $_SESSION['lang'] = $_POST['options'];
-
     }
 
-
-
     if (isset($_SESSION['lang'])) $lang = $_SESSION['lang'];
-
     else $_SESSION['lang'] = 'id';
-
-    
 
     global $post;
 
     $post_slug = $post->post_name;
 
+    //local
+    // $header_footer_post_id = 11;
 
-
+    //cloud
     $header_footer_post_id = 48;
-
-    
 
     $header = 'regijaya_header_id';
 
     $_SESSION['mode'] = 'dark';
 
     $logo = wp_get_attachment_image_url(get_post_meta($header_footer_post_id,'header_logo_dark_theme', true));
-
-
 
     if($post_slug == "home" || $post_slug == "klien") {
 
@@ -40,30 +31,19 @@
 
     }
 
-
-
     if (isset($_SESSION['lang'])) {
-
         if($_SESSION['lang'] == 'eng'){
-
             $header = 'regijaya_header_eng';
-
         }
-
     }
 
 ?>
-
-
 
 <!DOCTYPE html>
 
 <html <?php language_attributes(); ?>>
 
 <head>
-
-
-
     <!-- Meta -->
 
     <meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -78,17 +58,11 @@
 
     <link rel="shortcut icon" href="/wp-content/themes/regijaya/assets/images/logo.png"> 
 
-    
-
     <!-- CSS -->
 
     <?php wp_head(); ?>
 
-
-
 </head> 
-
- 
 
 <body>
 
@@ -109,20 +83,14 @@
                 <?php
 
                     wp_nav_menu(
-
                         array(
-
                             'theme_location' => $header,
-
                             'add_li_class' => $_SESSION['mode'].'-mode',
-
                         )
 
                     );
 
                 ?>
-
-                
 
                 <i class="bi bi-grid-3x3-gap-fill mobile-nav-toggle d-none"></i> 
 
@@ -132,5 +100,4 @@
 
     </header>
 
-    <!-- HEADER END -->  
-
+    <!-- HEADER END -->

@@ -2,13 +2,105 @@
 # General
 --------------------------------------------------------------*/
 @media (min-width: 320px) and (max-width: 991px) {
-    /* h1 {
-        font-size:1.5rem;
-    } */
+  /* h1 {
+      font-size:1.5rem;
+  } */
 
-    .desktop {
-      display: none;
-    }
+  .desktop {
+    display: none !important;
+  }
+
+  .text-center-mobile {
+    text-align: center;
+  }
+
+  .font-xs {
+    font-size: 0.75rem !important;
+  }
+  
+  .font-sm {
+    font-size: 1.75rem !important;
+  }
+
+  .font-md {
+    font-size: 2.5rem !important;
+  }
+
+  .section-title-mobile {
+    margin-top: 2.5rem;
+  }
+
+}
+
+@media (min-width: 320px) and (max-width: 573px) {
+  .col-xs {
+    flex: 1 0 0%;
+  }
+
+  .col-xs-auto {
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  .col-xs-1 {
+    flex: 0 0 auto;
+    width: 8.33333333%;
+  }
+
+  .col-xs-2 {
+    flex: 0 0 auto;
+    width: 16.66666667%;
+  }
+
+  .col-xs-3 {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+
+  .col-xs-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+  }
+
+  .col-xs-5 {
+    flex: 0 0 auto;
+    width: 41.66666667%;
+  }
+
+  .col-xs-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+
+  .col-xs-7 {
+    flex: 0 0 auto;
+    width: 58.33333333%;
+  }
+
+  .col-xs-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+  }
+
+  .col-xs-9 {
+    flex: 0 0 auto;
+    width: 75%;
+  }
+
+  .col-xs-10 {
+    flex: 0 0 auto;
+    width: 83.33333333%;
+  }
+
+  .col-xs-11 {
+    flex: 0 0 auto;
+    width: 91.66666667%;
+  }
+
+  .col-xs-12 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -29,6 +121,12 @@
   .delimeter {
     color: var(--color-white);
     font-size: 16px !important;
+  }
+
+  .nav-lang-button:hover,
+  .nav-lang-button.active-lang {
+    color: var(--color-white) !important;
+    text-decoration: underline;
   }
 
   .navbar ul {
@@ -116,6 +214,16 @@
 # Sections Home
 --------------------------------------------------------------*/
 @media (min-width: 320px) and (max-width: 991px) {
+  /* Home Slider */
+  .home{
+    min-height: 75vh !important;
+    height: 75vh;
+  }
+
+  .swiper-container{
+    height: 75vh;
+  }
+
   .layanan {
     margin-top: 3rem !important;
   }
@@ -140,6 +248,10 @@
     margin-bottom: 3rem !important;
   }
 
+  .layanan .row.mb-5 {
+    margin-bottom : 1rem !important;
+  }
+
 }
 
 /*--------------------------------------------------------------
@@ -155,6 +267,16 @@
     display: flex!important;
     align-items: end!important;
   }
+
+  .penghargaan-img-wrapper {
+     height: 25vh;
+     overflow: hidden;
+  }
+
+  .about-certif {
+    padding-top: 2rem !important;
+  }
+
 }
 
 /*--------------------------------------------------------------
@@ -194,6 +316,7 @@
 @media (min-width: 320px) and (max-width: 991px) {
   .kontak-header {
     text-align: center!important;
+    margin-top: 5rem;
   }
 
   .kontak-img {
@@ -213,6 +336,82 @@
 @media (min-width: 320px) and (max-width : 500px) {
   .btn-map {
     font-size: x-small;
+  }
+}
+
+/*--------------------------------------------------------------
+# Service Section
+--------------------------------------------------------------*/
+@media (min-width: 551px) and (max-width: 991px) {
+
+  .service-img-container {
+    height: 400px;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
+  p.service-number:first-letter {
+    font-size: 100px;
+  }
+
+  .service-title {
+    color: var(--color-primary);
+    font-size: calc(1.325rem + 0.9vw);
+  }
+
+  .service-slider.swiper-container {
+    max-height: 80vh !important;
+  }
+
+  .service-subtitle-img {
+    margin-top: 1.5rem;
+  }
+
+}
+
+@media (min-width: 320px) and (max-width: 425px) {
+
+  .service-slider .swiper-button-prev,
+  .service-slider .swiper-button-next {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+  
+}
+
+@media (min-width: 320px) and (max-width: 550px) {
+ 
+  .service-img-container {
+    height: 250px;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
+  p.service-number:first-letter {
+    font-size: 80px;
+  }
+
+  .service-title {
+    color: var(--color-primary);
+    font-size: calc(1.25rem + 0.9vw);
+  }
+
+  .service-slider.swiper-container {
+    max-height: 50vh !important;
+  }
+
+  .service-subtitle-img {
+    margin-top: 0.5rem;
+  }
+
+}
+
+/*--------------------------------------------------------------
+# Sertifikat & Award Section
+--------------------------------------------------------------*/
+@media (min-width: 320px) and (max-width: 991px) {
+  .certificate-awards-slider .swiper-scrollbar {
+    width: 60%;
   }
 }
 

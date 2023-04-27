@@ -48,14 +48,14 @@ final class HttpClientFactory implements \Sentry\HttpClient\HttpClientFactoryInt
     /**
      * Constructor.
      *
-     * @param UriFactoryInterface           $uriFactory      The PSR-7 URI factory
-     * @param ResponseFactoryInterface      $responseFactory The PSR-7 response factory
+     * @param UriFactoryInterface|null      $uriFactory      The PSR-7 URI factory
+     * @param ResponseFactoryInterface|null $responseFactory The PSR-7 response factory
      * @param StreamFactoryInterface        $streamFactory   The PSR-17 stream factory
      * @param HttpAsyncClientInterface|null $httpClient      The HTTP client
      * @param string                        $sdkIdentifier   The SDK identifier
      * @param string                        $sdkVersion      The SDK version
      */
-    public function __construct(\WPSentry\ScopedVendor\Psr\Http\Message\UriFactoryInterface $uriFactory, \WPSentry\ScopedVendor\Psr\Http\Message\ResponseFactoryInterface $responseFactory, \WPSentry\ScopedVendor\Psr\Http\Message\StreamFactoryInterface $streamFactory, ?\WPSentry\ScopedVendor\Http\Client\HttpAsyncClient $httpClient, string $sdkIdentifier, string $sdkVersion)
+    public function __construct(?\WPSentry\ScopedVendor\Psr\Http\Message\UriFactoryInterface $uriFactory, ?\WPSentry\ScopedVendor\Psr\Http\Message\ResponseFactoryInterface $responseFactory, \WPSentry\ScopedVendor\Psr\Http\Message\StreamFactoryInterface $streamFactory, ?\WPSentry\ScopedVendor\Http\Client\HttpAsyncClient $httpClient, string $sdkIdentifier, string $sdkVersion)
     {
         $this->streamFactory = $streamFactory;
         $this->httpClient = $httpClient;

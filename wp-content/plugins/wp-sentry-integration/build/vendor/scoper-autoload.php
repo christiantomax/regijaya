@@ -6,20 +6,20 @@ $loader = require_once __DIR__.'/autoload.php';
 
 // Aliases for the whitelisted classes. For more information see:
 // https://github.com/humbug/php-scoper/blob/master/README.md#class-whitelisting
-if (!class_exists('ComposerAutoloaderInite6959121e58d048ae46f77b4be44fac4', false) && !interface_exists('ComposerAutoloaderInite6959121e58d048ae46f77b4be44fac4', false) && !trait_exists('ComposerAutoloaderInite6959121e58d048ae46f77b4be44fac4', false)) {
-    spl_autoload_call('WPSentry\ScopedVendor\ComposerAutoloaderInite6959121e58d048ae46f77b4be44fac4');
+if (!class_exists('ComposerAutoloaderInit00bd21cf915002b6cdf2e37d8add9d2f', false) && !interface_exists('ComposerAutoloaderInit00bd21cf915002b6cdf2e37d8add9d2f', false) && !trait_exists('ComposerAutoloaderInit00bd21cf915002b6cdf2e37d8add9d2f', false)) {
+    spl_autoload_call('WPSentry\ScopedVendor\ComposerAutoloaderInit00bd21cf915002b6cdf2e37d8add9d2f');
 }
 
 // Functions whitelisting. For more information see:
 // https://github.com/humbug/php-scoper/blob/master/README.md#functions-whitelisting
-if (!function_exists('composerRequiree6959121e58d048ae46f77b4be44fac4')) {
-    function composerRequiree6959121e58d048ae46f77b4be44fac4() {
-        return \WPSentry\ScopedVendor\composerRequiree6959121e58d048ae46f77b4be44fac4(...func_get_args());
-    }
-}
 if (!function_exists('includeIfExists')) {
     function includeIfExists() {
         return \WPSentry\ScopedVendor\includeIfExists(...func_get_args());
+    }
+}
+if (!function_exists('composerRequire00bd21cf915002b6cdf2e37d8add9d2f')) {
+    function composerRequire00bd21cf915002b6cdf2e37d8add9d2f() {
+        return \WPSentry\ScopedVendor\composerRequire00bd21cf915002b6cdf2e37d8add9d2f(...func_get_args());
     }
 }
 

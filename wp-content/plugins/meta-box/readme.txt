@@ -2,10 +2,10 @@
 Contributors: elightup, metabox, rilwis, fitwp, f-j-kaiser, funkatronic, PerWiklander, ruanmer, Omnicia
 Donate link: https://metabox.io/pricing/
 Tags: meta box, custom fields, custom post types, custom taxonomies, cpt, meta boxes, custom field, post type, taxonomy, meta, admin, advanced, custom, edit, field, file, image, magic fields, post types, more fields, post, repeater, simple fields, text, textarea, type, cms, fields post
-Requires at least: 4.3
-Requires PHP: 5.6
-Tested up to: 6.0.2
-Stable tag: 5.6.7
+Requires at least: 4.8
+Requires PHP: 7.0
+Tested up to: 6.1.1
+Stable tag: 5.6.16
 License: GPLv2 or later
 
 Meta Box plugin is a powerful, professional developer toolkit to create custom meta boxes and custom fields for your custom post types in WordPress.
@@ -102,7 +102,7 @@ You'll have ultimate control to add whatever meta box and custom fields in WordP
 
 #### Premium Extensions
 
-- [MB Views](https://metabox.io/plugins/mb-views/): Outputing custom fields and build front-end templates for WordPress without touching theme files.
+- [MB Views](https://metabox.io/plugins/mb-views/): Outputting custom fields and build front-end templates for WordPress without touching theme files.
 - [MB Blocks](https://metabox.io/plugins/mb-blocks/): Create custom Gutenberg blocks with PHP, using the same syntax in Meta Box.
 - [Meta Box Builder](https://metabox.io/plugins/meta-box-builder/): Create custom meta boxes and custom fields in WordPress using a user-friendly drag-and-drop interface.
 - [Meta Box Group](https://metabox.io/plugins/meta-box-group/): Create repeatable groups of WordPress custom fields for better appearance and structure.
@@ -177,8 +177,64 @@ To getting started with the plugin, please read the [Quick Start Guide](https://
 
 == Changelog ==
 
+= 5.6.16 - 2023-01-29 =
+- Fix multiple `file` fields in cloneable groups not cloning properly
+- Fix custom fields not showing up in media modal
+- Fix warning when image select field not having options
+- Fix autoload file not found when the whole WordPress site is managed by Composer
+- Fix `taxonomy_advanced` not displaying selected values in sub groups
+- Fix CSS for files in settings pages with `no-box` style
+- Add a type-safe check for meta box settings
+
+= 5.6.15 - 2022-12-21 =
+- Remove empty post types from meta box settings
+- Fix multiple type file fields in cloneable groups not cloning properly
+- Fix color for date month/year dropdown
+- Fix error message when deleting images in the Customizer with MB Settings Page
+
+= 5.6.14 - 2022-12-13 =
+- Improve style for date picker
+- Update jQueryUI to 1.13.2
+- Fix inline date field not localized
+- Fix visibility for object field's query() method, which is called in MB Views and Meta Box Builder
+- Fix $meta is not countable in object field's query method
+- Remove return type for is_save() to be compatible with old version of MB Term Meta
+- Start to use PSR-4 and Composer
+
+= 5.6.13 - 2022-12-08 =
+- Fix name for adding form enctype to match with MB Term Meta extension
+- Fix return type for RWMB_Helpers_Array::map()
+- Fix required param type for RWMB_Helpers_Field::get_class()
+
+= 5.6.12 - 2022-12-06 =
+- Fix error getting license key
+
+= 5.6.11 - 2022-12-06 =
+- Fix compatibility with other extensions
+
+= 5.6.10 - 2022-12-06 =
+- Fix padding for images in custom blocks
+- Fix sidebar::query not compatible with object_choice::query
+- Fix compatibility with custom models in MB Custom Table. Closes #1466.
+- Modernize code: use short array, add type hints, remove comments
+
+= 5.6.9 - 2022-12-05 =
+- Improve accessibility for form controls, especially when using on the front end
+- Use all admin themes for switch and button group
+- Add filter 'rwmb_validation_message_string' for validation message
+- Display field label description even if no label
+- Fix not displaying the language according to user preference
+- Fix not setting post parent for the uploaded images on the front end for `image_upload` fields
+- Fix warning when using `file_info` helper function
+- Modernize code for PHP 7
+
+= 5.6.8 - 2022-11-11 =
+- Fix PHP8 warning in image field file info
+- Fix wrong comment for translation
+- Bump PHP version requirement to 7.0
+
 = 5.6.7 - 2022-09-16 =
-- Fix file_upload not working with required validation
+- Fix `file_upload` not working with required validation
 - Fix wrong text domain
 - Fix button group option to display horizontally not save in the builder
 

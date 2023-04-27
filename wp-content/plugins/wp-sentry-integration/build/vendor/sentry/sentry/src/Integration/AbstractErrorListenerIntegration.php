@@ -31,7 +31,12 @@ abstract class AbstractErrorListenerIntegration implements \Sentry\Integration\I
     {
         $exceptions = $event->getExceptions();
         foreach ($exceptions as $exception) {
-            $exception->setMechanism(new \Sentry\ExceptionMechanism(\Sentry\ExceptionMechanism::TYPE_GENERIC, \false));
+            $data = [];
+            $mechanism = $exception->getMechanism();
+            if (null !== $mechanism) {
+                $data = $mechanism->getData();
+            }
+            $exception->setMechanism(new \Sentry\ExceptionMechanism(\Sentry\ExceptionMechanism::TYPE_GENERIC, \false, $data));
         }
         return $event;
     }

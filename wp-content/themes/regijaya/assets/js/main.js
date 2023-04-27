@@ -26,16 +26,22 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Apppend Language to Navbar Mobile
      */
+    var btn_lang_id = '<input id="lang-id" class="nav-lang-button" type="submit" value="ID">';
+    var btn_lang_eng = '<input id="lang-eng" class="nav-lang-button" type="submit" value="EN">';
+
+    if(lang == "id") btn_lang_id = '<input id="lang-id" class="nav-lang-button active-lang" type="submit" value="ID">';
+    else btn_lang_eng = '<input id="lang-eng" class="nav-lang-button active-lang" type="submit" value="EN">';
+
     if (window.innerWidth <= 991) {
         var html = '<li>' +
             '<div class="d-flex align-items-left navbar-lang-menu">' +
                 '<form method="post" class="me-3">' +
                     '<input type="hidden" name="options" value="id">' +
-                    '<input class="nav-lang-button" type="submit" value="ID">' +
+                    btn_lang_id +
                 '</form> <span class="delimeter"> | </span>' +
                 '<form method="post" class="ms-3">' +
                     '<input type="hidden" name="options" value="eng">' +
-                    '<input class="nav-lang-button" type="submit" value="EN">' +
+                    btn_lang_eng +
                 '</form>' + 
             '</div>' +
         '</li>';
@@ -46,11 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
            '<div class="d-flex align-items-left navbar-lang-menu ' + mode + '">' +
                 '<form method="post" class="me-1">' +
                     '<input type="hidden" name="options" value="id">' +
-                    '<input class="nav-lang-button" type="submit" value="ID">' +
+                    btn_lang_id +
                 '</form> <span class="delimeter">|</span> ' +
                 '<form method="post" class="ms-1">' +
                     '<input type="hidden" name="options" value="eng">' +
-                    '<input class="nav-lang-button" type="submit" value="EN">' +
+                    btn_lang_eng +
                 '</form>' +
             '</div>' +
         '</li>';
@@ -102,14 +108,17 @@ document.addEventListener('DOMContentLoaded', () => {
     
                 if (window.pageYOffset >= sticky) {
                     header.classList.add("klien-header-text-mobile");
-                    } else {
+                } else {
                     header.classList.remove("klien-header-text-mobile");
-                    }
+                }
             }
         });
     }
-    
 
+    $('.sertif-button').on("click",function(){
+        document.getElementById("sertif-swiper-section").scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    });
+    
     /**
      * Home Slider
      */
@@ -119,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loop: true,
         effect: 'fade',
         autoplay: {
-            delay: 9000,
+            delay: 3000,
             disableOnInteraction: false
         },
         slidesPerView: 'auto',
@@ -138,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loop: true,
         effect: 'fade',
         autoplay: {
-            delay: 9000,
+            delay: 3000,
             disableOnInteraction: false
         },
         slidesPerView: 'auto',
@@ -146,6 +155,58 @@ document.addEventListener('DOMContentLoaded', () => {
             el: '.swiper-pagination',
             clickable: true
         }
+    });
+
+    let service1Swipper = new Swiper(".service1-swipper", {
+        direction: 'horizontal',
+        slidesPerView : 1.75,
+        speed: 500,
+        spaceBetween: 50,
+        centeredSlides: true,
+        loop:true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            320: {
+              slidesPerView: 1,
+            },
+            426: {
+                slidesPerView: 1.75,
+            }
+        }       
+    });
+
+
+    /**
+     * Sertifikat & Penghargaan Slider
+     */
+    let certificateSwipper = new Swiper('.certificate-awards-slider', {
+        slidesPerView: 2,
+        spaceBetween: 20,
+        grabCursor: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+        },
+        scrollbar: {
+            el: ".swiper-scrollbar"
+        },
+        breakpoints: {
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 40,
+            },
+        }        
     });
 
     /**

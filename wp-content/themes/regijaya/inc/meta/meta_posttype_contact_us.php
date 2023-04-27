@@ -67,12 +67,13 @@ function contact_us_register_meta_boxes( $meta_boxes ) {
                 'id'   => $prefix . 'email',
             ],
             [
-                'type'    => 'text_list',
+                'type'    => 'fieldset_text',
                 'name'    => esc_html__( 'Telepon', 'online-generator' ),
                 'id'      => $prefix . 'telepon',
                 'clone' => true,
                 'options' => [
-                    '' => 'Telepon',
+                    'telepon' => 'Telepon',
+                    'url' => 'URL'
                 ],
             ],
             [
@@ -159,6 +160,16 @@ function contact_us_register_meta_boxes( $meta_boxes ) {
                 'type' => 'text',
                 'name' => esc_html__( 'Button Submit ENG', 'online-generator' ),
                 'id'   => $prefix . 'button_submit_eng',
+            ],
+            [
+                'type' => 'text',
+                'name' => esc_html__( 'Email Contact Us To', 'online-generator' ),
+                'id'   => $prefix . 'email_contact_us_to',
+            ],
+            [
+                'type' => 'text',
+                'name' => esc_html__( 'Email Contact Us From', 'online-generator' ),
+                'id'   => $prefix . 'email_contact_us_from',
             ],
         ],
     ];

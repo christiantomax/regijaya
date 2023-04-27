@@ -2,19 +2,18 @@
 
 <?php 
 
-
-
 global $post;
 
 $post_slug = $post->post_name;
 
 
+//local
+// $header_footer_post_id = 11;
+// $contact_us_post_id = 19;
 
+//cloud
 $header_footer_post_id = 48;
-
 $contact_us_post_id = 60;
-
-
 
 $logo = wp_get_attachment_image_url(get_post_meta($header_footer_post_id,'header_logo_light_theme', true));
 
@@ -52,18 +51,6 @@ $contact_us_telepon_array = get_post_meta($contact_us_post_id,'contact_us_telepo
 
 $contact_us_email = get_post_meta($contact_us_post_id,'contact_us_email', true);
 
-
-
-$contact_us_telepon = array();
-
-foreach ( $contact_us_telepon_array as $value ) :
-
-    array_push($contact_us_telepon, $value[0]);
-
-endforeach;
-
-
-
 if (isset($_SESSION['lang'])) {
 
     if($_SESSION['lang'] == 'eng'){
@@ -98,11 +85,11 @@ if (isset($_SESSION['lang'])) {
 
 if($post_slug != "home" || $post_slug != "about") {?>
 
-<section id="footer-top" class="footer-top d-flex align-items-center text-center" style="  background:linear-gradient(rgba(var(--color-black-rgb), 0.7), rgba(var(--color-black-rgb), 0.7)), url(<?= $footer_top_image;?>);">
+<section id="footer-top" class="footer-top d-flex align-items-center text-center" data-aos="fade-up" style="background:linear-gradient(rgba(var(--color-black-rgb), 0.7), rgba(var(--color-black-rgb), 0.7)), url(<?= $footer_top_image;?>);">
 
-    <div class="container"  data-aos="fade-up">
+    <div class="container">
 
-        <h1 class="color-white"><?= $footer_top_title; ?></h1>
+        <h1 class="color-white font-sm"><?= $footer_top_title; ?></h1>
 
         <a href="<?= $footer_top_url_button; ?>" class="btn btn-white text-center mt-5 text-uppercase" type="submit"><?= $footer_top_button; ?></a>
 
@@ -162,7 +149,7 @@ if($post_slug != "home" || $post_slug != "about") {?>
 
                                                 'menu_class' => 'list-unstyled list-footer',
 
-                                                'add_li_class' => 'mb-4 me-5'
+                                                'add_li_class' => 'nav-footer mb-4 me-5'
 
                                             )
 
@@ -184,7 +171,7 @@ if($post_slug != "home" || $post_slug != "about") {?>
 
                                                 'menu_class' => 'list-unstyled list-footer',
 
-                                                'add_li_class' => 'mb-4 me-5'
+                                                'add_li_class' => 'nav-footer mb-4 me-5'
 
                                             )
 
@@ -202,9 +189,21 @@ if($post_slug != "home" || $post_slug != "about") {?>
 
                             <p><?= $footer_bottom_contact_description; ?></p>
 
-                            <p><?php echo implode("<br>",$contact_us_telepon); ?></p>
+                            <p>
+                                <?php $i = 0; foreach ( $contact_us_telepon_array as $value ) : 
+                                    if($i > 0) echo "<br>";
+                                    if($value['url'] != "") {
+                                ?>
+                                    <a class="u-footer" href="<?= $value['url'] ?>"><?= $value['telepon'] ?><a/>
+                                <?php } else {?>
+                                    <?= $value['telepon'] ?>
+                                <?php 
+                                    }
+                                    $i++;
+                                endforeach ?>
+                            </p>
 
-                            <p><?= $contact_us_email; ?></p>
+                            <p><a class="u-footer" href="mailto:<?= $contact_us_email; ?>"><?= $contact_us_email; ?></a></p>
 
 
 
@@ -234,15 +233,15 @@ if($post_slug != "home" || $post_slug != "about") {?>
 
                     <div class="design my-3">
 
-                        <div class="credits1 me-5">
-
-                            Design by <b>atdawn</b></a>
+                        <div class="credits me-5">
+                                            
+                            Design by <a class="u-footer" href="https://ideas-atdawn.com" target="_blank"><b>atdawn</b></a>
 
                         </div>
 
-                        <div class="credits2">
+                        <div class="credits">
 
-                            Code by <b>Qubick</b></a>
+                            Code by <a class="u-footer" href="https://qubick.id/" target="_blank"><b>Qubick</b></a>
 
                         </div>
 

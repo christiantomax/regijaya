@@ -216,76 +216,6 @@ function home_slider2_register_meta_boxes( $meta_boxes ) {
     return $meta_boxes;
 }
 
-//Product Section
-add_filter( 'rwmb_meta_boxes', 'home_product_register_meta_boxes' );
-
-function home_product_register_meta_boxes( $meta_boxes ) {
-    $prefix = 'home_product_';
-
-    $meta_boxes[] = [
-        'title'      => esc_html__( 'Home Product Section', 'online-generator' ),
-        'id'         => 'home_product_section',
-        'post_types' => ['page'],
-        'context'    => 'normal',
-        'autosave'   => true,
-        'fields'     => [
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Title ID', 'online-generator' ),
-                'id'   => $prefix . 'title_id',
-            ],
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Title ENG', 'online-generator' ),
-                'id'   => $prefix . 'title_eng',
-            ],
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Subtitle1 ID', 'online-generator' ),
-                'id'   => $prefix . 'subtitle1_id',
-            ],
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Subtitle1 ENG', 'online-generator' ),
-                'id'   => $prefix . 'subtitle1_eng',
-            ],
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Subtitle2 ID', 'online-generator' ),
-                'id'   => $prefix . 'subtitle2_id',
-            ],
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Subtitle2 ENG', 'online-generator' ),
-                'id'   => $prefix . 'subtitle2_eng',
-            ],
-            [
-                'type'             => 'image_advanced',
-                'name'             => esc_html__( 'Image Produk', 'online-generator' ),
-                'id'               => $prefix . 'image_produk',
-                'max_file_uploads' => 4,
-            ],
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Button ID', 'online-generator' ),
-                'id'   => $prefix . 'button_id',
-            ],
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Button ENG', 'online-generator' ),
-                'id'   => $prefix . 'button_eng',
-            ],
-            [
-                'type' => 'url',
-                'name' => esc_html__( 'Url Button', 'online-generator' ),
-                'id'   => $prefix . 'url_button',
-            ],
-        ],
-    ];
-
-    return $meta_boxes;
-}
-
 //Caption Section
 add_filter( 'rwmb_meta_boxes', 'home_caption_register_meta_boxes' );
 
@@ -338,57 +268,6 @@ function home_caption_register_meta_boxes( $meta_boxes ) {
                 'type' 			   => 'single_image',
                 'name' => esc_html__( 'Image Background', 'online-generator' ),
                 'id'   => $prefix . 'image_background',
-            ],
-        ],
-    ];
-
-    return $meta_boxes;
-}
-
-//Client Section
-add_filter( 'rwmb_meta_boxes', 'home_client_register_meta_boxes' );
-
-function home_client_register_meta_boxes( $meta_boxes ) {
-    $prefix = 'home_client_';
-
-    $meta_boxes[] = [
-        'title'      => esc_html__( 'Home Client Section', 'online-generator' ),
-        'id'         => 'home_client_section',
-        'post_types' => ['page'],
-        'context'    => 'normal',
-        'autosave'   => true,
-        'fields'     => [
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Title ID', 'online-generator' ),
-                'id'   => $prefix . 'title_id',
-            ],
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Title ENG', 'online-generator' ),
-                'id'   => $prefix . 'title_eng',
-            ],
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Subtitle ID', 'online-generator' ),
-                'id'   => $prefix . 'subtitle_id',
-            ],
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Subtitle ENG', 'online-generator' ),
-                'id'   => $prefix . 'subtitle_eng',
-            ],
-            [
-                'type'             => 'image_advanced',
-                'name'             => esc_html__( 'Image Klien Kiri', 'online-generator' ),
-                'id'               => $prefix . 'image_klien_kiri',
-                'max_file_uploads' => 3,
-            ],
-            [
-                'type'             => 'image_advanced',
-                'name'             => esc_html__( 'Image Klien Kanan', 'online-generator' ),
-                'id'               => $prefix . 'image_klien_kanan',
-                'max_file_uploads' => 3,
             ],
         ],
     ];

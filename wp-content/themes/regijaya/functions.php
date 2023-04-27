@@ -63,7 +63,9 @@ if(! function_exists( 'regijaya_setup' )) :
                     'regijaya_header_id' => 'Navbar ID',
                     'regijaya_header_eng' => 'Navbar ENG',
                     'regijaya_footer_id' => 'Footer ID',
-                    'regijaya_footer_eng' => 'Footer ENG'
+                    'regijaya_footer_eng' => 'Footer ENG',
+                    'regijaya_footer_id_mobile' => 'Footer ID Mobile',
+                    'regijaya_footer_eng_mobile' => 'Footer ENG Mobile'
                 )
             );
 
@@ -103,6 +105,40 @@ endif;
 //REGIJAYA SETUP - END
 
 add_action( 'after_setup_theme', 'regijaya_setup' );
+
+
+//  Custom post type pagination function - START
+function cpt_pagination($pages = '')
+{
+    global $paged;
+    if(empty($paged)) $paged = 1;
+    if($pages == '')
+    {
+        global $wp_query;
+        $pages = $wp_query->max_num_pages;
+        if(!$pages)
+        {
+            $pages = 1;
+        }
+    }
+    
+    echo '
+        <nav aria-label="Page navigation" data-aos="fade-up">
+            <ul class="pagination justify-content-center">
+    ';
+    
+    for ($i=1; $i <= $pages; $i++)
+    {
+        echo ($paged == $i)? '<li class="page-item active"><a class="page-link">'.$i.'</a></li>': '<li class="page-item"><a class="page-link" href="'.get_pagenum_link($i).'">'.$i.'</a></li>';
+    }
+    
+    echo '
+        </ul>
+            </nav>
+    ';
+    
+}
+//  Custom post type pagination function - END
 
 //SESSION - START
 add_action('init', 'start_session', 1);

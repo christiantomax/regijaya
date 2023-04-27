@@ -29,7 +29,6 @@ $home_slider2_image = rwmb_meta('home_slider2_image_slider');
 $home_product_title = rwmb_meta('home_product_title_id');
 $home_product_subtitle1 = rwmb_meta('home_product_subtitle1_id');
 $home_product_subtitle2 = rwmb_meta('home_product_subtitle2_id');
-$home_product_image_produk = rwmb_meta('home_product_image_produk');
 $home_product_button = rwmb_meta('home_product_button_id');
 $home_product_url_button = rwmb_meta('home_product_url_button');
 
@@ -43,15 +42,18 @@ $home_caption_image = rwmb_meta('home_caption_image_background')['full_url'];
 //Client Section
 $home_client_title = rwmb_meta('home_client_title_id');
 $home_client_subtitle = rwmb_meta('home_client_subtitle_id');
-$home_client_image_kiri_produk = rwmb_meta('home_client_image_klien_kiri');
-$home_client_image_kanan_produk = rwmb_meta('home_client_image_klien_kanan');
 
 $index_service_atas = 'service_atas_id';
 $index_service_bawah = 'service_bawah_id';
 
+$lang = '_id';
+$prefix_product = 'product_';
+$prefix_client = 'client_';
+
 if (isset($_SESSION['lang'])) {
     if($_SESSION['lang'] == 'eng'){
         $index_service = 'service_eng';
+        $lang = '_eng';
 
         //About Section
         $home_about_description1 = rwmb_meta('home_about_description1_eng');
@@ -93,12 +95,12 @@ if (isset($_SESSION['lang'])) {
             <div class="swiper-wrapper">
 
                 <?php foreach ( $home_slider1_image as $value ) : ?>
-                    <div class="swiper-slide" style="background:linear-gradient(rgba(var(--color-black-rgb), 0.5), rgba(var(--color-black-rgb), 0.5)), url(<?= $value['full_url'];?>);">
+                    <div class="swiper-slide pointer" style="background:linear-gradient(rgba(var(--color-black-rgb), 0.5), rgba(var(--color-black-rgb), 0.5)), url(<?= $value['full_url'];?>);">
                         <div class="home-text d-flex align-items-center">
                             <div class="row">
                                 <div class="col-2"></div>
                                 <div class="col-5">
-                                    <h1><?= $value['caption']; ?></h1>
+                                    <h1 class="font-md"><?= $value['caption']; ?></h1>
                                 </div>
                             </div>
                         </div>
@@ -115,8 +117,8 @@ if (isset($_SESSION['lang'])) {
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-1 col-md-1 col-sm-1"></div>
-            <div class="col-lg-4 col-md-10 col-sm-10" data-aos="zoom-in">
-                <img src="<?= $home_about_image1; ?>" class="img-fluid mb-5">
+            <div class="col-lg-4 col-md-10 col-sm-10">
+                <div class="home-img-wrapper parallax mb-5" style=" background-image: url(<?= $home_about_image1; ?>);"></div>
             </div>
             <div class="col-lg-1 col-md-1 col-sm-1"></div>
             <div class="col-md-1 col-sm-1 mobile"></div>
@@ -147,8 +149,8 @@ if (isset($_SESSION['lang'])) {
             </div>
             <div class="col-lg-1 col-md-1 col-sm-1 "></div>
             <div class="col-lg-3 col-md-4 col-sm-4">
-                <div class="square-wrapper" data-aos="zoom-in">
-                    <div class="square-img-wrapper" style="background-image: url(<?= $home_about_image2;?>);"><div class="square-content-img h1">AA</div></div>
+                <div class="square-wrapper">
+                    <div class="square-img-wrapper parallax mb-1" style="background-image: url(<?= $home_about_image2;?>);"><div class="square-content-img h1">AA</div></div>
                 </div>
             </div>
             <div class="col-lg-1 col-md-1 col-sm-1"></div>
@@ -161,8 +163,8 @@ if (isset($_SESSION['lang'])) {
         <div class="row mb-5">
             <div class="col-lg-1 col-md-1 col-sm-1"></div>
             <div class="col-lg-4 col-md-7 col-sm-7" data-aos="fade-up">
-                <p class="color-secondary my-0"><?= $home_service_title; ?></p>
-                <h1 class="color-primary-dark"><?= $home_service_subtitle; ?></h1>
+                <p class="font-xs color-secondary my-0 text-uppercase"><?= $home_service_title; ?></p>
+                <h1 class="font-sm color-primary-dark"><?= $home_service_subtitle; ?></h1>
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-3 up-8 desktop">
@@ -177,8 +179,8 @@ if (isset($_SESSION['lang'])) {
                 <div class="d-flex justify-content-between">
 
                     <?php foreach ( $home_service_service as $value ) : ?>
-                        <h5 class="color-primary-dark"><?= $value['number']; ?></h5>
-                         <h5 class="color-primary-dark"><?= $value[$index_service_atas]; ?> <br><?= $value[$index_service_bawah]; ?></h5>
+                        <h4 class="font-xs color-primary-dark"><?= $value['number']; ?></h4>
+                         <h4 class="font-xs color-primary-dark"><?= $value[$index_service_atas]; ?> <br><?= $value[$index_service_bawah]; ?></h4>
                     <?php endforeach ?>
 
                 </div>
@@ -228,50 +230,68 @@ if (isset($_SESSION['lang'])) {
 <section class="home-product">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-4 col-md-2 col-sm-2"></div>
-            <div class="col-lg-6 col-md-6 col-sm-6" data-aos="fade-up">
-                <p class="color-secondary my-0"><?= $home_product_title; ?></p>
-                <h1 class="color-primary-dark text-sm-start my-0"><?= $home_product_subtitle1; ?></h1>
+            <div class="col-lg-4 col-md-2 col-sm-2 col-xs-1"></div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-11" data-aos="fade-up">
+                <p class="font-xs color-secondary my-0 text-uppercase"><?= $home_product_title; ?></p>
+                <h1 class="font-sm color-primary-dark text-sm-start my-0"><?= $home_product_subtitle1; ?></h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-2 col-md-4 col-sm-4"></div>
-            <div class="col-lg-6 col-md-6 col-sm-6" data-aos="fade-up">
-                <h1 class="color-primary-dark text-sm-end "><?= $home_product_subtitle2; ?></h1>
+            <div class="col-lg-2 col-md-4 col-sm-4 col-xs-3"></div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-9" data-aos="fade-up">
+                <h1 class="font-sm color-primary-dark text-sm-end "><?= $home_product_subtitle2; ?></h1>
             </div>
         </div>
         <div class="row mt-5" data-aos="fade-up">
             <div class="col-lg-1 col-md-1 col-sm-1"></div>
             <div class="col-lg-10 col-md-10 col-sm-10">
                 <div class="row mb-5">
-
+                    
                     <?php 
                     $i = 0;
-                    foreach ( $home_product_image_produk as $value ) : 
-                    
-                    if($i % 2 == 0) {
-                    ?>
-                        <div class="col-md-1 col-sm-1 mobile"></div>
-                        <div class="col-lg-3 col-md-5 col-sm-5">
-                            <div class="home-product-img">
-                                <img src="<?= $value['full_url'];?>">
-                            </div>
-                            <div class="home-product-title"><h6 class="my-1"><?= $value['caption'];?></h6></div>
-                            <div class="home-product-subtitle"><p><?= $value['description'];?></p>
-                            </div>
-                        </div>
-                    <?php } else { ?>
-                        <div class="col-lg-3 col-md-5 col-sm-5">
-                            <div class="home-product-img">
-                                <img src="<?= $value['full_url'];?>">
-                            </div>
-                            <div class="home-product-title"><h6 class="my-1"><?= $value['caption'];?></h6></div>
-                            <div class="home-product-subtitle"><p><?= $value['description'];?></p>
-                            </div>
-                        </div>
-                        <div class="col-md-1 col-sm-1 mobile"></div>
-                    <?php } $i++; endforeach; ?>
+        
+                    $args = array( 
+                        'posts_per_page'        => '4',
+                        'post_type'             => 'product',
+                        'paged' => '1'
+                    );
+        
+                    $query = new WP_Query($args);
+        
+                    foreach($query->posts as $post_item){
+                        $post_id = $post_item->ID;
+        
+                        $product_image = get_post_meta($post_id, $prefix_product . 'image_product',true);
+                        $product_name = get_post_meta($post_id, $prefix_product . 'product_name' .$lang,true);
+                        $product_subname = get_post_meta($post_id, $prefix_product . 'product_subname' .$lang,true);
+                        
 
+                        if($i % 2 == 0) {
+                            echo '
+                            <div class="col-lg-3 col-md-5 col-sm-5 col-xs-6 mb-2">
+                                <div class="home-product-img">
+                                    <img src="'.wp_get_attachment_image_url($product_image, 'large').'">
+                                </div>
+                                <div class="home-product-title"><h6 class="my-1">'.$product_name.'</h6></div>
+                                <div class="home-product-subtitle"><p>'.$product_subname.'</p>
+                                </div>
+                            </div>
+                            ';
+                        } else {
+                            echo '
+                            <div class="col-lg-3 col-md-5 col-sm-5 col-xs-6 mb-2">
+                                <div class="home-product-img">
+                                    <img src="'.wp_get_attachment_image_url($product_image, 'large').'">
+                                </div>
+                                <div class="home-product-title"><h6 class="my-1">'.$product_name.'</h6></div>
+                                <div class="home-product-subtitle"><p>'.$product_subname.'</p>
+                                </div>
+                            </div>
+                            ';
+                        }
+                        $i++;
+                    } 
+                    ?>
                 </div>
                 <div class="text-center" data-aos="fade-up">
                     <a href="<?= $home_product_url_button; ?>" class="btn btn-primary-dark text-uppercase"><?= $home_product_button; ?></a>
@@ -286,11 +306,11 @@ if (isset($_SESSION['lang'])) {
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-2 col-md-1 col-sm-1"></div>
-            <div class="col-lg-8 col-md-10 col-sm-10" data-aos="fade-up">
-                <h3 class="caption-title1"><?= $home_caption_caption1; ?></h3>
-                <h3 class="caption-title2"><?= $home_caption_caption2; ?></h3>
-                <h3 class="caption-title3"><?= $home_caption_caption3; ?></h3>
-                <p class="caption-writer"><?= $home_caption_author; ?></p>
+            <div class="col-lg-8 col-md-10 col-sm-10">
+                <h3 class="caption-title1" data-aos="fade-up"><?= $home_caption_caption1; ?></h3>
+                <h3 class="caption-title2" data-aos="fade-up"><?= $home_caption_caption2; ?></h3>
+                <h3 class="caption-title3" data-aos="fade-up"><?= $home_caption_caption3; ?></h3>
+                <p class="caption-writer" data-aos="fade-up"><?= $home_caption_author; ?></p>
             </div>
             <div class="col-lg-2 col-md-1 col-sm-1"></div>
         </div>
@@ -310,30 +330,43 @@ if (isset($_SESSION['lang'])) {
                 </div>
             </div>
             <div class="col-lg-1 col-md-1 col-sm-1"></div>
-            <div class="col-md-1 col-sm-1 mobile"></div>
-            <div class="col-lg-5 col-md-10 col-sm-10">
+            <div class="col-md-1 col-sm-1 col-xs-1 mobile"></div>
+            <div class="col-lg-5 col-md-10 col-sm-10 col-xs-10">
                 <div class="row">
-                    <div class="col-md-2 col-sm-2 mobile"></div>
-                    <div class="col-lg-5 col-md-3 col-sm-3" data-aos="fade-up">
 
-                        <?php foreach ( $home_client_image_kiri_produk as $value ) : ?>
-                            <div class="klien-content">
-                                <img src="<?= $value['full_url'];?>" class="img-fluid klien-img">
-                            </div>
-                        <?php endforeach ?>
+                    <?php
+                        $args = array( 
+                            'post_type'             => 'client',
+                        );
 
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2"></div>
-                    <div class="col-lg-5 col-md-3 col-sm-3" data-aos="fade-up">
-                        
-                        <?php foreach ( $home_client_image_kanan_produk as $value ) : ?>
-                            <div class="klien-content">
-                                <img src="<?= $value['full_url'];?>" class="img-fluid klien-img">
-                            </div>
-                        <?php endforeach ?>
+                        $query = new WP_Query($args);
+                        $i = 1;
+                        foreach($query->posts as $post_item){
+                            $post_id = $post_item->ID;
 
-                    </div>
-                    <div class="col-md-2 col-sm-2 mobile"></div>
+                            $image = get_post_meta($post_id, $prefix_client . 'image_client',true);
+                            
+                            if($i % 2 == 0 ) {
+                                echo '<div class="col-lg-2 col-md-2 col-sm-2 desktop"></div>';
+                            }
+
+                            echo '
+                                
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                        <div class="klien-content" data-aos="fade-up">
+                                            <img src="'.wp_get_attachment_image_url($image, 'large').'" class="img-fluid klien-img">
+                                        </div>
+                                </div>
+                            ';
+
+                            if($i % 2 != 0 ) {
+                                echo '<div class="col-md-2 col-sm-2 col-xs-1 mobile"></div>';
+                            }
+
+                            $i++;
+                        }
+
+                    ?>
                 </div>
             </div>
             <div class="col-lg-1 col-md-1 col-sm-1"></div>

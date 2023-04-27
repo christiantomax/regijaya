@@ -3,7 +3,7 @@
 --------------------------------------------------------------*/
 @font-face {
 	font-family: "Manrope";
-	src: url("../fonts/Manrope-VariableFont_wght.ttf");
+	src: url("../fonts/Manrope-VariableFont_wght.woff");
 }
 
 /*--------------------------------------------------------------
@@ -58,7 +58,7 @@ h6 {
 }
 
 h1 {
-  font-size:2.5rem !important;
+  font-size:3rem !important;
 }
 
 /* Button */
@@ -80,9 +80,8 @@ h1 {
 }
 
 .btn-white:hover {
-  color: var(--color-white);
-  border-color: var(--color-black);
-  box-shadow: inset 400px 0 0 0 #231F20;
+  color: var(--color-black);
+  box-shadow: inset 400px 0 0 0 var(--color-white);
 }
 
 .btn-primary-dark {
@@ -107,12 +106,48 @@ h1 {
   color : var(--color-default);
 }
 
+.pointer {
+  cursor: pointer;
+}
+
+.grab {
+  cursor: grab;
+}
+
+.parallax {
+  /* Set a specific height */
+  width: 100%;
+  height: 100%;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed !important;
+  /* background-position: center center!important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important; */
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes grow {
+  0% {
+    background: var(--color-white);
+    width: 75%;
+  }
+  100% {
+    width: 100%;
+    background: var(--color-primary-dark);
+  }
+}
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
 .header {
   padding: 15px 8.33333333%;
-  transition: all 0.5s;
+  transition: all 2s;
   z-index: 997;
 }
 
@@ -135,21 +170,23 @@ h1 {
   background-color: transparent;
   font-weight: 500;
   white-space: nowrap;
-  transition: 0.3s;
 }
 
 .navbar-lang-menu {
-  padding: 14px 20px !important;
+  padding-top : 14px;
+  padding-left : 20px;
+  padding-right: 20px;
 }
 
 /*--------------------------------------------------------------
 # Sections Home
 --------------------------------------------------------------*/
 .swiper-slide {
+  background-attachment: fixed !important;
   background-position: center !important;
+  background-repeat: no-repeat !important;
   background-size: cover !important;
   position: relative !important;
-  background-repeat: no-repeat;
 }
 
 /* Home Slider */
@@ -167,7 +204,6 @@ h1 {
 
 .swiper-container{
   width: 100%;
-  height: var(--height-home-section);
   overflow: hidden;
 }
 
@@ -182,16 +218,17 @@ h1 {
 
 .home .swiper-pagination-bullet {
   background: var(--color-white);
+  width: 75%;
   opacity: 1;
   border-radius: 0;
-  height: 2px;
-  width: 75%;
+  height: 3px;
   margin : 5px 0 0 0 !important;
 }
 
 .home .swiper-pagination-bullet-active {
-  background: var(--color-primary-dark);
   width: 100%;
+  background: var(--color-primary-dark);
+  animation: grow 1.3s ease-in-out;
 }
 
 /* Home Bridge */
@@ -244,7 +281,6 @@ h1 {
 .home-product-title {
   text-transform: uppercase;
   text-align: center;
-  font-weight: 500 !important;
 }
 
 .home-product-subtitle {
@@ -252,7 +288,6 @@ h1 {
   color: var(--color-secondary);
   text-align: center;
   font-size: smaller;
-  font-weight: 500;
 }
 
 .home-caption {
@@ -270,20 +305,20 @@ h1 {
 .caption-title1 {
   text-align: right;
   margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   font-weight: 575 !important;
 }
 
 .caption-title2 {
   text-align: left;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   font-weight: 575 !important;
 }
 
 
 .caption-title3 {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   font-weight: 575 !important;
 }
 
@@ -291,7 +326,7 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   font-size: small;
 }
 
@@ -299,6 +334,10 @@ h1 {
 .home-klien {
   margin-top: 5%;
   min-height: 75vh;
+}
+
+.home-img-wrapper {
+  padding-bottom: 10rem;
 }
 
 /*--------------------------------------------------------------
@@ -319,11 +358,6 @@ h1 {
 --------------------------------------------------------------*/
 .about {
   margin-top: 14%;
-}
-
-.penghargaan-img-wrapper {
-  height: 50vh;
-  overflow: hidden;
 }
 
 .about-section-header {
@@ -427,6 +461,237 @@ h1 {
   box-shadow: 0 0 0 0.1rem rgba(var(--color-primary-dark-rgb), 0.2);
 }
 
+.email {
+  display: inline-block;
+  padding-bottom:1px;
+  background-image: linear-gradient(var(--color-primary) 0 0);
+  background-position: 0 100%; /*OR bottom left*/
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  transition:
+    background-size 0.3s,
+    background-position 0s 0.3s; /*change after the size immediately*/
+}
+
+.email:hover {
+  background-position: 100% 100%; /*OR bottom right*/
+  background-size: 100% 1px;
+}
+
+/*--------------------------------------------------------------
+# Sections Product
+--------------------------------------------------------------*/
+.nav-tabs {
+  border-bottom: 1px solid var(--color-primary-dark);
+}
+
+.nav-link {
+  color: var(--color-default);
+  font-size: small;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: var(--color-primary-dark);
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  border-bottom: transparent;
+}
+
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+  border-color: transparent;
+  color: var(--color-primary-dark);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.tab-subtitle {
+  color: var(--color-secondary);
+  font-size: smaller;
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  color: var(--color-primary);
+  text-decoration: none;
+  background-color: transparent;
+  border: transparent;
+  font-weight: 900;
+  border-radius:50% !important;
+  margin: 1.5rem 1.5rem;
+  padding: .3rem .75rem !important;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.page-link:hover {
+  z-index: 2;
+  color: white;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  /* border-radius:50%; */
+}
+
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.tab-pane.active {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/*--------------------------------------------------------------
+# Service Section
+--------------------------------------------------------------*/
+p.service-number:first-letter {
+  color: rgba(var(--color-primary-rgb), 0.15);
+  font-size: 100px;
+  font-weight: bolder;
+  display: block;
+  float: left;
+  line-height: 0;
+  /* margin: 15px 15px 10px 0; */
+}
+
+.service-img-container {
+  overflow: hidden;
+}
+
+.service-number {
+  color: rgba(var(--color-primary-rgb), 0.15);
+  font-weight: bolder;
+}
+
+.service-title {
+  color: var(--color-primary);
+}
+
+.service-desc {
+  color: var(--color-secondary);
+  font-size: smaller;
+}
+
+.service-img-fluid {
+  max-width: 100%;
+  height: fit-content;
+  width: 100%;
+}
+
+.service-slider .swiper-button-prev,
+.service-slider .swiper-button-next {
+  border-radius: 50%;
+  color: white;
+  background-color: var(--color-primary);
+  padding: 1.3rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+.service-slider .swiper-button-prev:after{
+  content: '\1F850' !important;
+  font-size: 1.25rem;
+}
+
+.service-slider .swiper-button-next:after{
+  content: '\1F852' !important;
+  font-size: 1.25rem;
+}
+
+.service-subtitle-img {
+  text-align: center;
+  color:  var(--color-default);
+}
+
+.service-slider-section {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* .service-slider.swiper-container .swiper-slide-active {
+  animation: fadeIn 2s ease-in-out;
+} */
+
+
+
+/*--------------------------------------------------------------
+# Sertifikat & Award Section
+--------------------------------------------------------------*/
+.sertif-header-section {
+  background-position: center center !important;
+  background-size: cover !important;
+}
+
+.sertif-award-section {
+  /* min-height: 60vh !important;
+  height: 60vh; */
+  margin-top: 7%;
+  margin-bottom: 10%;
+}
+
+/* .certificate-awards-slider {
+  height: 60vh;
+} */
+
+.certificate-awards-slider .swiper-slide {
+  height: 100% !important;
+}
+
+.certificate-awards-slider .swiper-scrollbar {
+  background: rgba(var(--color-primary-rgb),.1);
+  border-radius: 0px;
+  right: 9%;
+  left: unset;
+  bottom: unset;
+  height: 3px;
+}
+
+.certificate-awards-slider .swiper-scrollbar-drag {
+  background: rgba(var(--color-primary-rgb));
+  border-radius: 0px;
+  height: 3px;
+}
+
+.slider-img {
+  max-width:100%;
+  max-height:90%;
+}
+
+.sertifikat-img-container {
+  height: 15vw;
+  overflow: hidden;
+}
+
+.sertifikat-img {
+  height: 100%;
+  background-position: center top !important;
+}
+
+.sertif-button {
+  color: white;
+  width: 40px;
+  height: 40px;
+  border: 0px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  
+}
+
+.sertif-button:after {
+  font-weight: 900;
+  content: '\2193' !important;
+  font-size: 1.3rem;
+}
+
+.swiper-container-sertif{
+  width: 100%;
+  overflow: hidden;
+}
+
 /*--------------------------------------------------------------
 # Footer-top Section
 --------------------------------------------------------------*/
@@ -451,6 +716,7 @@ footer {
   padding-bottom: 3%;
   overflow: hidden;
   position: relative;
+  margin-top:-1px;
 }
 
 a {
@@ -468,4 +734,38 @@ a:hover {
 
 .logo-footer {
   width: 75%;
+}
+
+.nav-footer a {
+  display: inline-block;
+  padding-bottom:1px;
+  background-image: linear-gradient(var(--color-white) 0 0);
+  background-position: 0 100%; /*OR bottom left*/
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  transition:
+    background-size 0.3s,
+    background-position 0s 0.3s; /*change after the size immediately*/
+}
+
+.nav-footer a:hover {
+  background-position: 100% 100%; /*OR bottom right*/
+  background-size: 100% 1px;
+}
+
+.u-footer {
+  display: inline-block;
+  padding-bottom:1px;
+  background-image: linear-gradient(var(--color-white) 0 0);
+  background-position: 0 100%; /*OR bottom left*/
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  transition:
+    background-size 0.3s,
+    background-position 0s 0.3s; /*change after the size immediately*/
+}
+
+.u-footer:hover {
+  background-position: 100% 100%; /*OR bottom right*/
+  background-size: 100% 1px;
 }

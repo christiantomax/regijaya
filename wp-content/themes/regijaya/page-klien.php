@@ -1,13 +1,15 @@
 <?php get_header();
 
+$lang = '_id';
+$prefix = 'client_';
+
 $klien_title = rwmb_meta('klien_title_id');
 $klien_subtitle = rwmb_meta('klien_subtitle_id');
 $klien_image = rwmb_meta('klien_image')['full_url'];
-$klien_image_kiri = rwmb_meta('klien_image_kiri');
-$klien_image_kanan = rwmb_meta('klien_image_kanan');
 
 if (isset($_SESSION['lang'])) {
     if($_SESSION['lang'] == 'eng'){
+        $lang = '_eng';
         $klien_title = rwmb_meta('klien_title_eng');
         $klien_subtitle = rwmb_meta('klien_subtitle_eng');
     }
@@ -48,29 +50,41 @@ if (isset($_SESSION['lang'])) {
             <div class="col-lg-2 col-md-2 col-sm-2"></div>
             <div class="col-lg-5 col-md-8">
                 <div class="row">
-                    <div class="col-5">
 
-                        <?php foreach ( $klien_image_kiri as $image ) : ?>
-                            <div class="klien-content">
-                                <img src="<?= $image['url']; ?>" class="img-fluid klien-img">
-                                <p class="klien-content-header"><?= $image['caption']; ?></p>
-                                <p class="klien-content-footer"><?= $image['description']; ?></p>
-                            </div>
-                        <?php endforeach ?>
-                        
-                    </div>
-                    <div class="col-2"></div>
-                    <div class="col-5">
+                    <?php
 
-                        <?php foreach ( $klien_image_kanan as $image ) : ?>
-                            <div class="klien-content">
-                                <img src="<?= $image['url']; ?>" class="img-fluid klien-img">
-                                <p class="klien-content-header"><?= $image['caption']; ?></p>
-                                <p class="klien-content-footer"><?= $image['description']; ?></p>
-                            </div>
-                        <?php endforeach ?>
+                        $args = array( 
+                            'post_type'             => 'client',
+                        );
 
-                    </div>
+                        $query = new WP_Query($args);
+                        $i = 1;
+                        foreach($query->posts as $post_item){
+                            $post_id = $post_item->ID;
+
+                            $image = get_post_meta($post_id, $prefix . 'image_client',true);
+                            $title = get_post_meta($post_id, $prefix . 'title'.$lang,true);
+                            $subtitle = get_post_meta($post_id, $prefix . 'subtitle'.$lang,true);
+                            
+                            if($i % 2 == 0 ) {
+                                echo ' <div class="col-2"></div>';
+                            }
+
+                            echo '
+                                <div class="col-5">
+                                    <div class="klien-content">
+                                        <img src="'.wp_get_attachment_image_url($image, 'large').'" class="img-fluid klien-img">
+                                        <p class="klien-content-header">'.$title.'</p>
+                                        <p class="klien-content-footer">'.$subtitle.'</p>
+                                    </div>
+                                </div>
+                            ';
+
+                            $i++;
+                        }
+
+                    ?>
+
                 </div>
             </div>
             <div class="col-md-2 col-sm-2 mobile"></div>

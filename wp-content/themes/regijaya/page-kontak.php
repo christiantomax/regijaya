@@ -18,11 +18,10 @@ $contact_us_input4 = rwmb_meta('contact_us_input4_id');
 $contact_us_input5 = rwmb_meta('contact_us_input5_id');
 $contact_us_button_sumbit = rwmb_meta('contact_us_button_submit_id');
 
+$email_contact_us_to = rwmb_meta('contact_us_email_contact_us_to');
+$email_contact_us_from = rwmb_meta('contact_us_email_contact_us_from');
+
 $index_alamat = 'alamat_id';
-$contact_us_telepon = array();
-foreach ( $contact_us_telepon_array as $value ) :
-    array_push($contact_us_telepon, $value[0]);
-endforeach;
 
 if (isset($_SESSION['lang'])) {
     if($_SESSION['lang'] == 'eng'){
@@ -41,6 +40,33 @@ if (isset($_SESSION['lang'])) {
         $index_alamat = 'alamat_eng';
     }
 }
+if(isset($_POST["btn-submit"])){
+
+    if($_POST["btn-submit"]){
+
+        $to = $email_contact_us_to;
+        $nama = "Nama : ".$_POST["inputNama"]."<br/>";
+        $telp = "Phone Number : ".$_POST["inputTelp"]."<br/>";
+        $subject = $_POST["inputSubjek"];
+        $from="Email : ".$_POST["inputEmail"]."<br/><br/>";
+        $msg= $_POST["inputPesan"];
+        $headers[]= "From: " . $email_contact_us_from;
+        $headers[]= "Reply-To: " . $_POST["inputEmail"];
+        $headers[]= 'content-type: text/html';
+        
+        $full_msg = $nama.$telp.$from.$msg;
+    
+        $sent = wp_mail( $to, $subject, $full_msg, $headers);
+        if($sent) {
+            echo "<script>console.log('SUCCESS SENT EMAIL!!');</script>";      
+          }
+          else  {
+            //message wasn't sent 
+            echo "<script>console.log('FAILED TO SENT EMAIL!!');</script>";      
+          }
+    }
+}
+
 
 ?>
 
@@ -67,7 +93,7 @@ if (isset($_SESSION['lang'])) {
             <div class="col-lg-4 col-md-10 col-sm-10 kotak-content">
                 <p class="color-secondary mb-4">
                     <?= $contact_us_description?> 
-                    <span class="color-primary-dark"><u><?= $contact_us_email; ?></u></span>
+                    <a href="mailto:<?= $contact_us_email; ?>"><span class="email color-primary-dark"><?= $contact_us_email; ?></span></a>
                 </p>
 
                 <h6 class="color-primary-dark"><?= $contact_us_subtitle1; ?></h6>
@@ -79,7 +105,17 @@ if (isset($_SESSION['lang'])) {
 
                 <h6 class="color-primary-dark">Hubungi Kami</h6>
                 <p class="mb-4 color-secondary">
-                    <?php echo implode(" / ",$contact_us_telepon); ?>
+                    <?php $i = 0; foreach ( $contact_us_telepon_array as $value ) : 
+                        if($i > 0) echo " / ";
+                        if($value['url'] != "") {
+                    ?>
+                        <a class="color-secondary" href="<?= $value['url'] ?>"><?= $value['telepon'] ?><a/>
+                    <?php } else {?>
+                        <?= $value['telepon'] ?>
+                    <?php 
+                        }
+                        $i++;
+                    endforeach ?>
                 </p>
 
                 <a href="<?= $contact_us_url_maps; ?>" class="btn btn-primary-dark text-center btn-map text-uppercase" target="_blank"><?= $contact_us_button1; ?></a>
@@ -100,33 +136,33 @@ if (isset($_SESSION['lang'])) {
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
-                <form>
+                <form method="post">
                     <div class="row">
                         <div class="form-group col-lg-6 my-3">
                             <label class="kontak-label" for="inputNama"><?= $contact_us_input1; ?></label>
-                            <input type="text" class="form-control kontak-input" id="inputNama">
+                            <input type="text" class="form-control kontak-input" id="inputNama" name="inputNama">
                         </div>
                         <div class="form-group col-lg-6 my-3">
                             <label class="kontak-label" for="inputEmail"><?= $contact_us_input2; ?></label>
-                            <input type="email" class="form-control kontak-input" id="inputEmail" >
+                            <input type="email" class="form-control kontak-input" id="inputEmail" name="inputEmail">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-lg-6 my-3">
                             <label class="kontak-label" for="inputTelp"><?= $contact_us_input3; ?></label>
-                            <input type="text" class="form-control kontak-input" id="inputTelp">
+                            <input type="text" class="form-control kontak-input" id="inputTelp" name="inputTelp">
                         </div>
                         <div class="form-group col-lg-6 my-3">
                             <label class="kontak-label" for="inputSubjek"><?= $contact_us_input4; ?></label>
-                            <input type="text" class="form-control kontak-input" id="inputSubjek">
+                            <input type="text" class="form-control kontak-input" id="inputSubjek" name="inputSubjek">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="kontak-label" for="inputPesan"><?= $contact_us_input5; ?></label>
-                        <textarea class="form-control kontak-input" id="inputPesan" rows="5"></textarea>
+                        <textarea class="form-control kontak-input" id="inputPesan" rows="5" name="inputPesan"></textarea>
                         </div>
                     <div class="text-center my-5">
-                        <button type="submit" class="btn btn-primary-dark btn-submit-kotak text-uppercase"><?= $contact_us_button_sumbit; ?></button>
+                        <input type="submit" name="btn-submit" id="btn-submit" class="btn btn-primary-dark btn-submit-kotak text-uppercase" value="<?= $contact_us_button_sumbit; ?>"></input>
                     </div>
                 </form>
             </div>
