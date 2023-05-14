@@ -8,12 +8,12 @@ $post_slug = $post->post_name;
 
 
 //local
-// $header_footer_post_id = 11;
-// $contact_us_post_id = 19;
+$header_footer_post_id = 5;
+$contact_us_post_id = 15;
 
 //cloud
-$header_footer_post_id = 48;
-$contact_us_post_id = 60;
+// $header_footer_post_id = 48;
+// $contact_us_post_id = 60;
 
 $logo = wp_get_attachment_image_url(get_post_meta($header_footer_post_id,'header_logo_light_theme', true));
 
@@ -130,6 +130,7 @@ if($post_slug != "home" || $post_slug != "about") {?>
                             </p>
 
                         </div>
+                        <div class="col-lg-1"></div>
 
                         <div class="col-lg-6 col-md-12 my-3">
 
