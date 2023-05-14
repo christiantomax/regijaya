@@ -13,6 +13,7 @@
 	require_once get_template_directory().'/inc/meta/meta_posttype_contact_us.php';
 	require_once get_template_directory().'/inc/meta/meta_posttype_kebijakan.php';
 	require_once get_template_directory().'/inc/meta/meta_posttype_service.php';
+	require_once get_template_directory().'/inc/meta/meta_posttype_service_detail.php';
 	require_once get_template_directory().'/inc/meta/meta_posttype_certificate.php';
 	// METABOX GENERATE - END
 
@@ -89,7 +90,6 @@
 				if(isset($_GET['post'])) {
 					if (strtolower(get_the_title($_GET['post'])) != 'header-footer') {
 						unset( $meta_boxes[$k] );
-						echo $meta_boxes[$k];
 					}
 				}
 			}
@@ -137,7 +137,21 @@
 					}
 				}
 			}
+			if( $meta_box['id'] === 'home_product_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'home') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
 			if( $meta_box['id'] === 'home_caption_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'home') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
+			if( $meta_box['id'] === 'home_client_section' ) {
 				if(isset($_GET['post'])) {
 					if (strtolower(get_the_title($_GET['post'])) != 'home') {
 						unset( $meta_boxes[$k] );
@@ -232,7 +246,32 @@
 				}
 			}
 
-			//Service
+			if( $meta_box['id'] === 'service1_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'layanan') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
+
+			if( $meta_box['id'] === 'service2_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'layanan') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
+
+			//Service Detail
+			if( $meta_box['id'] === 'service_detail_section' ) {
+				if(isset($_GET['post'])) {
+					if (strtolower(get_the_title($_GET['post'])) != 'layanan-detail') {
+						unset( $meta_boxes[$k] );
+					}
+				}
+			}
+
+			//Certificate
 			if( $meta_box['id'] === 'certificate_section' ) {
 				if(isset($_GET['post'])) {
 					if (strtolower(get_the_title($_GET['post'])) != 'sertifikat') {

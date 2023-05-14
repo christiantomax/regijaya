@@ -1,11 +1,13 @@
 <?php
-add_filter( 'rwmb_meta_boxes', 'service_register_meta_boxes' );
 
-function service_register_meta_boxes( $meta_boxes ) {
+//Service Home Section
+add_filter( 'rwmb_meta_boxes', 'service__register_meta_boxes' );
+
+function service__register_meta_boxes( $meta_boxes ) {
     $prefix = 'service_';
 
     $meta_boxes[] = [
-        'title'      => esc_html__( 'Service Section', 'online-generator' ),
+        'title'      => esc_html__( 'Service  Section', 'online-generator' ),
         'id'         => 'service_section',
         'post_types' => ['page'],
         'context'    => 'normal',
@@ -22,169 +24,166 @@ function service_register_meta_boxes( $meta_boxes ) {
                 'id'   => $prefix . 'title_eng',
             ],
             [
-                'type' => 'text',
-                'name' => esc_html__( 'Service1 Title ID', 'online-generator' ),
-                'id'   => $prefix . 'service1_title_id',
-            ],
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Service1 Title ENG', 'online-generator' ),
-                'id'   => $prefix . 'service1_title_eng',
+                'type' => 'textarea',
+                'name' => esc_html__( 'Description ID', 'online-generator' ),
+                'id'   => $prefix . 'description_id',
             ],
             [
                 'type' => 'textarea',
-                'name' => esc_html__( 'Service1 Description Kiri ID', 'online-generator' ),
-                'id'   => $prefix . 'service1_desc_kiri_id',
+                'name' => esc_html__( 'Description ENG', 'online-generator' ),
+                'id'   => $prefix . 'description_eng',
             ],
             [
-                'type' => 'textarea',
-                'name' => esc_html__( 'Service1 Description Kiri ENG', 'online-generator' ),
-                'id'   => $prefix . 'service1_desc_kiri_eng',
-            ],
-            [
-                'type' => 'textarea',
-                'name' => esc_html__( 'Service1 Description Kanan ID', 'online-generator' ),
-                'id'   => $prefix . 'service1_desc_kanan_id',
-            ],
-            [
-                'type' => 'textarea',
-                'name' => esc_html__( 'Service1 Description Kanan ENG', 'online-generator' ),
-                'id'   => $prefix . 'service1_desc_kanan_eng',
-            ],
-            [
-                'type'             => 'image_advanced',
-                'name'             => esc_html__( 'Image Service1', 'online-generator' ),
-                'id'               => $prefix . 'image_service1',
-            ],
-            [
-                'type'    => 'fieldset_text',
-                'name'    => esc_html__( 'Subtitle Image Service1', 'online-generator' ),
-                'id'      => $prefix . 'subtitle_img_service1',
-                'options' => [
-                    'subtitle_id'  => 'Subtitle ID',
-                    'subtitle_eng' => 'Subtitle ENG',
-                ],
-                'clone'   => true,
-            ],
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Service2 Title ID', 'online-generator' ),
-                'id'   => $prefix . 'service2_title_id',
-            ],
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Service2 Title ENG', 'online-generator' ),
-                'id'   => $prefix . 'service2_title_eng',
-            ],
-            [
-                'type' => 'textarea',
-                'name' => esc_html__( 'Service2 Description Kiri ID', 'online-generator' ),
-                'id'   => $prefix . 'service2_desc_kiri_id',
-            ],
-            [
-                'type' => 'textarea',
-                'name' => esc_html__( 'Service2 Description Kiri ENG', 'online-generator' ),
-                'id'   => $prefix . 'service2_desc_kiri_eng',
-            ],
-            [
-                'type' => 'textarea',
-                'name' => esc_html__( 'Service2 Description Kanan ID', 'online-generator' ),
-                'id'   => $prefix . 'service2_desc_kanan_id',
-            ],
-            [
-                'type' => 'textarea',
-                'name' => esc_html__( 'Service2 Description Kanan ENG', 'online-generator' ),
-                'id'   => $prefix . 'service2_desc_kanan_eng',
-            ],
-            [
-                'type'             => 'image_advanced',
-                'name'             => esc_html__( 'Image Service2', 'online-generator' ),
-                'id'               => $prefix . 'image_service2',
-            ],
-            [
-                'type'    => 'fieldset_text',
-                'name'    => esc_html__( 'Subtitle Image Service2', 'online-generator' ),
-                'id'      => $prefix . 'subtitle_img_service2',
-                'options' => [
-                    'subtitle_id'  => 'Subtitle ID',
-                    'subtitle_eng' => 'Subtitle ENG',
-                ],
-                'clone'   => true,
-            ],
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Service3 Title ID', 'online-generator' ),
-                'id'   => $prefix . 'service3_title_id',
-            ],
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Service3 Title ENG', 'online-generator' ),
-                'id'   => $prefix . 'service3_title_eng',
-            ],
-            [
-                'type' => 'textarea',
-                'name' => esc_html__( 'Service3 Description Kiri ID', 'online-generator' ),
-                'id'   => $prefix . 'service3_desc_kiri_id',
-            ],
-            [
-                'type' => 'textarea',
-                'name' => esc_html__( 'Service3 Description Kiri ENG', 'online-generator' ),
-                'id'   => $prefix . 'service3_desc_kiri_eng',
-            ],
-            [
-                'type' => 'textarea',
-                'name' => esc_html__( 'Service3 Description Kanan ID', 'online-generator' ),
-                'id'   => $prefix . 'service3_desc_kanan_id',
-            ],
-            [
-                'type' => 'textarea',
-                'name' => esc_html__( 'Service3 Description Kanan ENG', 'online-generator' ),
-                'id'   => $prefix . 'service3_desc_kanan_eng',
-            ],
-            [
-                'type'             => 'image_advanced',
-                'name'             => esc_html__( 'Image Service3', 'online-generator' ),
-                'id'               => $prefix . 'image_service3',
-            ],
-            [
-                'type'    => 'fieldset_text',
-                'name'    => esc_html__( 'Subtitle Image Service3', 'online-generator' ),
-                'id'      => $prefix . 'subtitle_img_service3',
-                'options' => [
-                    'subtitle_id'  => 'Subtitle ID',
-                    'subtitle_eng' => 'Subtitle ENG',
-                ],
-                'clone'   => true,
-            ],
-            [
-                'type' => 'textarea',
-                'name' => esc_html__( 'Service Footer ID', 'online-generator' ),
-                'id'   => $prefix . 'service_footer_id',
-            ],
-            [
-                'type' => 'textarea',
-                'name' => esc_html__( 'Service Footer ENG', 'online-generator' ),
-                'id'   => $prefix . 'service_footer_eng',
-            ],
-            
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Service Button ID', 'online-generator' ),
-                'id'   => $prefix . 'service_button_id',
-            ],
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Service Button ENG', 'online-generator' ),
-                'id'   => $prefix . 'service_button_eng',
-            ],
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'Service URL Button', 'online-generator' ),
-                'id'   => $prefix . 'service_url_button',
+                'type' => 'single_image',
+                'name' => esc_html__( 'Image', 'online-generator' ),
+                'id'   => $prefix . 'image',
             ],
         ],
     ];
 
     return $meta_boxes;
 }
+
+//Service1 Section
+add_filter( 'rwmb_meta_boxes', 'service1__register_meta_boxes' );
+
+function service1__register_meta_boxes( $meta_boxes ) {
+    $prefix = 'service1_';
+
+    $meta_boxes[] = [
+        'title'      => esc_html__( 'Service1  Section', 'online-generator' ),
+        'id'         => 'service1_section',
+        'post_types' => ['page'],
+        'context'    => 'normal',
+        'autosave'   => true,
+        'fields'     => [
+            [
+                'type' => 'text',
+                'name' => esc_html__( 'Title ID', 'online-generator' ),
+                'id'   => $prefix . 'title_id',
+            ],
+            [
+                'type' => 'text',
+                'name' => esc_html__( 'Title ENG', 'online-generator' ),
+                'id'   => $prefix . 'title_eng',
+            ],
+            [
+                'type' => 'textarea',
+                'name' => esc_html__( 'Description ID', 'online-generator' ),
+                'id'   => $prefix . 'description_id',
+            ],
+            [
+                'type' => 'textarea',
+                'name' => esc_html__( 'Description ENG', 'online-generator' ),
+                'id'   => $prefix . 'description_eng',
+            ],
+            [
+                'type' => 'single_image',
+                'name' => esc_html__( 'Image', 'online-generator' ),
+                'id'   => $prefix . 'image',
+            ],
+            [
+                'type' => 'text',
+                'name' => esc_html__( 'Button ID', 'online-generator' ),
+                'id'   => $prefix . 'button_id',
+            ],
+            [
+                'type' => 'text',
+                'name' => esc_html__( 'Button ENG', 'online-generator' ),
+                'id'   => $prefix . 'button_eng',
+            ],
+            [
+                'type' => 'url',
+                'name' => esc_html__( 'Url Button', 'online-generator' ),
+                'id'   => $prefix . 'url_button',
+            ],
+            [
+                'type'    => 'fieldset_text',
+                'name'    => esc_html__( 'Service', 'online-generator' ),
+                'id'      => $prefix . 'service_detail',
+                'options' => [
+                    'title_id'  => 'Service Title ID',
+                    'title_eng' => 'Service Title ENG',
+                    'desc_id'  => 'Service Description ID',
+                    'desc_eng' => 'Service Description ENG',
+                ],
+                'clone'   => true,
+            ],
+        ],
+    ];
+
+    return $meta_boxes;
+}
+
+//Service1 Section
+add_filter( 'rwmb_meta_boxes', 'service2__register_meta_boxes' );
+
+function service2__register_meta_boxes( $meta_boxes ) {
+    $prefix = 'service2_';
+
+    $meta_boxes[] = [
+        'title'      => esc_html__( 'Service2  Section', 'online-generator' ),
+        'id'         => 'service2_section',
+        'post_types' => ['page'],
+        'context'    => 'normal',
+        'autosave'   => true,
+        'fields'     => [
+            [
+                'type' => 'text',
+                'name' => esc_html__( 'Title ID', 'online-generator' ),
+                'id'   => $prefix . 'title_id',
+            ],
+            [
+                'type' => 'text',
+                'name' => esc_html__( 'Title ENG', 'online-generator' ),
+                'id'   => $prefix . 'title_eng',
+            ],
+            [
+                'type' => 'textarea',
+                'name' => esc_html__( 'Description ID', 'online-generator' ),
+                'id'   => $prefix . 'description_id',
+            ],
+            [
+                'type' => 'textarea',
+                'name' => esc_html__( 'Description ENG', 'online-generator' ),
+                'id'   => $prefix . 'description_eng',
+            ],
+            [
+                'type' => 'single_image',
+                'name' => esc_html__( 'Image', 'online-generator' ),
+                'id'   => $prefix . 'image',
+            ],
+            [
+                'type' => 'text',
+                'name' => esc_html__( 'Button ID', 'online-generator' ),
+                'id'   => $prefix . 'button_id',
+            ],
+            [
+                'type' => 'text',
+                'name' => esc_html__( 'Button ENG', 'online-generator' ),
+                'id'   => $prefix . 'button_eng',
+            ],
+            [
+                'type' => 'url',
+                'name' => esc_html__( 'Url Button', 'online-generator' ),
+                'id'   => $prefix . 'url_button',
+            ],
+            [
+                'type'    => 'fieldset_text',
+                'name'    => esc_html__( 'Service', 'online-generator' ),
+                'id'      => $prefix . 'service_detail',
+                'options' => [
+                    'title_id'  => 'Service Title ID',
+                    'title_eng' => 'Service Title ENG',
+                    'desc_id'  => 'Service Description ID',
+                    'desc_eng' => 'Service Description ENG',
+                ],
+                'clone'   => true,
+            ],
+        ],
+    ];
+
+    return $meta_boxes;
+}
+
 ?>
