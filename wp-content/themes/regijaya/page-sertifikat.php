@@ -31,7 +31,7 @@ if (isset($_SESSION['lang'])) {
         <div class="row">
             <div class="col-1"></div>
             <div class="col-10">
-                <h1 class="mb-4 font-sm" data-aos="fade-up"><?= $certificate_title1; ?><span class="h3 color-primary"><?= $certificate_subtitle1; ?></span></h1>
+                <h1 class="mb-4 font-sm" data-aos="fade-up"><?= $certificate_title1; ?><span class="ms-4 color-primary"><?= $certificate_subtitle1; ?></span></h1>
                 <div class="row mb-4">
                     <div class="col-7 sertifikat-img-container">
                         <div class="sertifikat-img parallax" style="background:linear-gradient(rgba(var(--color-black-rgb), 0.5), rgba(var(--color-black-rgb), 0.5)), url(<?= $certificate_header_image;?>);"></div>
@@ -43,7 +43,7 @@ if (isset($_SESSION['lang'])) {
                         <h1 class="text-end mb-4 font-sm" data-aos="fade-up"><?= $certificate_title3; ?></h1>
                         <div class="d-flex justify-content-between" data-aos="fade-up">
                             <h1 class="color-primary font-sm"><?= $certificate_title4; ?></h1>
-                            <button class="sertif-button me-5 mt-2"></button>
+                            <button id="sertif-button" class="round-button me-5 mt-2"></button>
                         </div>
                         
                     </div>
