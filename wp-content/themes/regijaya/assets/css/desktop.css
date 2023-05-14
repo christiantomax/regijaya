@@ -232,6 +232,15 @@
 # Service Section
 --------------------------------------------------------------*/
 @media (min-width: 992px) {
+  .img-service-section-top{
+    margin-top: 3rem!important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Service Detail Section
+--------------------------------------------------------------*/
+@media (min-width: 992px) {
 
   p.service-number:first-letter {
     font-size: 100px;
