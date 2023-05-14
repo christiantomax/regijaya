@@ -115,10 +115,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    $('.sertif-button').on("click",function(){
+    $('#sertif-button').on("click",function(){
         document.getElementById("sertif-swiper-section").scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
     });
     
+    $('#service-button').on("click",function(){
+        document.getElementById("service1-section").scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    });
+
     /**
      * Home Slider
      */
