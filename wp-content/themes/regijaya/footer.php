@@ -8,12 +8,12 @@ $post_slug = $post->post_name;
 
 
 //local
-$header_footer_post_id = 10;
-$contact_us_post_id = 20;
+// $header_footer_post_id = 10;
+// $contact_us_post_id = 20;
 
-//cloud
-// $header_footer_post_id = 48;
-// $contact_us_post_id = 60;
+// cloud
+$header_footer_post_id = 48;
+$contact_us_post_id = 60;
 
 $logo = wp_get_attachment_image_url(get_post_meta($header_footer_post_id,'header_logo_light_theme', true));
 
