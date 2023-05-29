@@ -252,6 +252,10 @@
     margin-bottom : 1rem !important;
   }
 
+  .home-img-wrapper {
+    /* background-position: calc(100% - 50%); */
+  }
+
 }
 
 /*--------------------------------------------------------------
@@ -346,10 +350,6 @@
   .image-service-section {
     margin-top: 2.5rem !important;
     margin-bottom: 2.5rem !important;
-  }
-
-  .m-service-button-mobile {
-    margin-top: 2.5rem !important;
   }
 }
 

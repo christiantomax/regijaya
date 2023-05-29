@@ -320,11 +320,11 @@ function about_us_sertifikat_register_meta_boxes( $meta_boxes ) {
                 'name' => esc_html__( 'Title ENG', 'online-generator' ),
                 'id'   => $prefix . 'title_eng',
             ],
-            [
-                'type' 			   => 'single_image',
-                'name' => esc_html__( 'Image', 'online-generator' ),
-                'id'   => $prefix . 'image',
-            ],
+            // [
+            //     'type' 			   => 'single_image',
+            //     'name' => esc_html__( 'Image', 'online-generator' ),
+            //     'id'   => $prefix . 'image',
+            // ],
             [
                 'type'             => 'image_advanced',
                 'name'             => esc_html__( 'Image Sertifikat Penghargaan', 'online-generator' ),

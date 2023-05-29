@@ -34,6 +34,7 @@ if (isset($_SESSION['lang'])) {
                         $args = array( 
                             'posts_per_page'        => $post_per_page,
                             'post_type'             => 'product',
+                            'orderby'   => 'category',
                             'paged' => $paged
                         );
 

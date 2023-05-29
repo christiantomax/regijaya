@@ -8,8 +8,8 @@ $post_slug = $post->post_name;
 
 
 //local
-$header_footer_post_id = 5;
-$contact_us_post_id = 15;
+$header_footer_post_id = 10;
+$contact_us_post_id = 20;
 
 //cloud
 // $header_footer_post_id = 48;

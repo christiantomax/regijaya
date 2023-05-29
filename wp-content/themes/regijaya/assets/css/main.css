@@ -352,6 +352,8 @@ h1 {
 
 .home-img-wrapper {
   padding-bottom: 10rem;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /*--------------------------------------------------------------
@@ -562,6 +564,10 @@ h1 {
 /*--------------------------------------------------------------
 # Service Section
 --------------------------------------------------------------*/
+.m-service-button {
+  margin-top: 2.5rem !important;
+}
+
 .service-section {
   min-height: var(--height-home-section) !important;
   height: var(--height-home-section);

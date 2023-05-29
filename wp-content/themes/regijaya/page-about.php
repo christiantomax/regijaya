@@ -37,7 +37,7 @@ $about_us_pekerja_image = rwmb_meta('about_us_pekerja_image')['full_url'];
 
 //Sertifikat Section
 $about_us_sertifikat_title = rwmb_meta('about_us_sertifikat_title_id');
-$about_us_sertifikat_image = rwmb_meta('about_us_sertifikat_image')['full_url'];
+// $about_us_sertifikat_image = rwmb_meta('about_us_sertifikat_image')['full_url'];
 $about_us_sertifikat_image_sertifikat_penghargaan = rwmb_meta('about_us_sertifikat_image_sertifikat_penghargaan');
 
 $index_misi = 'misi_id';
@@ -108,7 +108,7 @@ if (isset($_SESSION['lang'])) {
     </div>
 </section>
 
-<section class="my-6">
+<section class="my-6" id="visi">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-5 col-md-3 col-sm-3"></div>
@@ -330,11 +330,11 @@ if (isset($_SESSION['lang'])) {
         <div class="row">
             <div class="col-1 desktop"></div>
             <div class="col-10">
-                <div class="row">
+                <div class="row py-3">
                     <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6 up-5 px-0">
-                        <div class="penghargaan-img-wrapper" data-aos="zoom-in">
-                            <img src="<?= $about_us_sertifikat_image;?>" class="img-fluid">
-                        </div>
+                        <!-- <div class="penghargaan-img-wrapper" data-aos="zoom-in">
+                            <img src="<?php //$about_us_sertifikat_image;?>" class="img-fluid">
+                        </div> -->
                     </div>
                     <div class="col-1 desktop"></div>
                     <div class="col-6 d-flex align-items-center" data-aos="fade-up">

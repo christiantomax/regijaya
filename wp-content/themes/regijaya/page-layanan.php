@@ -120,7 +120,7 @@ if (isset($_SESSION['lang'])) {
             </div>
             <div class="col-sm-1 col-md-1 col-lg-1 col-xs-1"></div>
         </div>
-        <div class="row m-service-button-mobile">
+        <div class="row m-service-button">
             <div class="col-1"></div>
             <div class="col-10">
                 <div class="text-end" data-aos="fade-up">
