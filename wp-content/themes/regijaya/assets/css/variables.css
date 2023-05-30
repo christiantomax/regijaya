@@ -1,0 +1,89 @@
+/*--------------------------------------------------------------
+# 1. Regijaya template variables 
+--------------------------------------------------------------*/
+:root {
+
+    /* Fonts */
+    --font-default: "Manrope";
+  
+    /* Colors */
+    /* The *-rgb color names are simply the RGB converted value of the corresponding color for use in the rgba() function */
+  
+    /* Default text color */
+    --color-default: #231F20;
+    --color-default-rgb: 35, 31, 32;
+  
+    /* Defult links color */
+    --color-links: #ffffff;
+    --color-links-hover: #9B0412;
+
+    --color-links: #3279fc;
+    --color-links-hover: #4797ff;
+  
+    /* Primay colors */
+    --color-primary: #C2000C;
+    --color-primary-dark: #9B0412;
+  
+    --color-primary-rgb: 194, 0, 12;
+    --color-primary-dark-rgb: 155, 4, 18;
+  
+    /* Secondary colors */
+    --color-secondary: #6f6f6f;
+  
+    --color-secondary-rgb: 111, 111, 111;
+  
+    /* General colors */
+    --color-white: #ffffff;
+    --color-white-rgb: 255, 255, 255;
+  
+    --color-black: #231F20;
+    --color-black-rgb: 35, 31, 32;
+    
+    /* Section colors */
+    --height-home-section: 100vh;
+    --height-home-brige-section: 70vh;
+    --height-home-brige-section-slider: 50vh;
+}
+
+/*--------------------------------------------------------------
+# 2. Override default Bootstrap variables
+--------------------------------------------------------------*/
+:root {
+    --bs-primary: var(--color-primary);
+    --bs-secondary: var(--color-secondary);
+    --bs-danger: var(--color-primary-dark);
+    --bs-light: var(--color-white);
+    --bs-dark: var(--color-black);
+    --bs-primary-rgb: var(--color-primary-rgb);
+    --bs-secondary-rgb: var(--color-secondary-rgb);
+    --bs-danger-rgb: var(--color-primary-dark-rgb);
+    --bs-light-rgb: var(--color-white-rgb);
+    --bs-dark-rgb: var(--color-black-rgb);
+    --bs-body-font-family: var(--font-default);
+    --bs-body-bg: var(--color-white);
+    --bs-body-bg-rgb: var(--color-white-rgb);
+}
+
+/*--------------------------------------------------------------
+# 3. Set color and background class names
+--------------------------------------------------------------*/
+/* Fonts */
+.font-default { font-family: var(--font-default) !important; }
+
+/* Text Colors */
+.color-default { color: var(--color-default) !important; }
+.color-links { color: var(--color-links) !important; }
+.color-links:hover { color: var(--color-links-hover) !important; }
+.color-primary { color: var(--color-primary) !important; }
+.color-primary-dark { color: var(--color-primary-dark) !important; }
+.color-secondary { color: var(--color-secondary) !important; }
+.color-white { color: var(--color-white) !important; }
+.color-black { color: var(--color-black) !important; }
+
+/* Background Colors */
+.bg-default { background-color: var(--color-default) !important; }
+.bg-primary { background-color: var(--color-primary) !important; }
+.bg-primary-dark { background-color: var(--color-primary-dark) !important; }
+.bg-secondary { background-color: var(--color-secondary) !important; }
+.bg-white { background-color: var(--color-white) !important; }
+.bg-black { background-color: var(--color-black) !important; }

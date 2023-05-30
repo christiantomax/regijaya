@@ -87,7 +87,7 @@ abstract class AbstractSerializer
                 return $this->serializeValue($value);
             }
             try {
-                if (\is_callable($value)) {
+                if (@\is_callable($value)) {
                     return $this->serializeCallable($value);
                 }
             } catch (\Throwable $exception) {
@@ -202,7 +202,13 @@ abstract class AbstractSerializer
             return $value;
         }
         if (\is_object($value)) {
-            return 'Object ' . \get_class($value);
+            $objectId = null;
+            if (isset($value->id)) {
+                $objectId = $value->id;
+            } elseif (\is_callable([$value, 'getId']) && \method_exists($value, 'getId')) {
+                $objectId = $value->getId();
+            }
+            return 'Object ' . \get_class($value) . (null !== $objectId ? '(#' . $objectId . ')' : '');
         }
         if (\is_resource($value)) {
             return 'Resource ' . \get_resource_type($value);

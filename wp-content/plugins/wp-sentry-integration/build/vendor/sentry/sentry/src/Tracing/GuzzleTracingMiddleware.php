@@ -5,6 +5,7 @@ namespace Sentry\Tracing;
 
 use Closure;
 use WPSentry\ScopedVendor\GuzzleHttp\Exception\RequestException as GuzzleRequestException;
+use WPSentry\ScopedVendor\GuzzleHttp\Psr7\Uri;
 use WPSentry\ScopedVendor\Psr\Http\Message\RequestInterface;
 use WPSentry\ScopedVendor\Psr\Http\Message\ResponseInterface;
 use Sentry\Breadcrumb;
@@ -20,16 +21,26 @@ final class GuzzleTracingMiddleware
         return static function (callable $handler) use($hub) : Closure {
             return static function (\WPSentry\ScopedVendor\Psr\Http\Message\RequestInterface $request, array $options) use($hub, $handler) {
                 $hub = $hub ?? \Sentry\SentrySdk::getCurrentHub();
+                $client = $hub->getClient();
                 $span = $hub->getSpan();
                 if (null === $span) {
                     return $handler($request, $options);
                 }
+                $partialUri = \WPSentry\ScopedVendor\GuzzleHttp\Psr7\Uri::fromParts(['scheme' => $request->getUri()->getScheme(), 'host' => $request->getUri()->getHost(), 'port' => $request->getUri()->getPort(), 'path' => $request->getUri()->getPath()]);
                 $spanContext = new \Sentry\Tracing\SpanContext();
                 $spanContext->setOp('http.client');
-                $spanContext->setDescription($request->getMethod() . ' ' . $request->getUri());
+                $spanContext->setDescription($request->getMethod() . ' ' . (string) $partialUri);
+                $spanContext->setData(['http.query' => $request->getUri()->getQuery(), 'http.fragment' => $request->getUri()->getFragment()]);
                 $childSpan = $span->startChild($spanContext);
-                $request->withHeader('sentry-trace', $childSpan->toTraceparent());
-                $handlerPromiseCallback = static function ($responseOrException) use($hub, $request, $childSpan) {
+                $request = $request->withHeader('sentry-trace', $childSpan->toTraceparent());
+                // Check if the request destination is allow listed in the trace_propagation_targets option.
+                if (null !== $client) {
+                    $sdkOptions = $client->getOptions();
+                    if (\in_array($request->getUri()->getHost(), $sdkOptions->getTracePropagationTargets())) {
+                        $request = $request->withHeader('baggage', $childSpan->toBaggage());
+                    }
+                }
+                $handlerPromiseCallback = static function ($responseOrException) use($hub, $request, $childSpan, $partialUri) {
                     // We finish the span (which means setting the span end timestamp) first to ensure the measured time
                     // the span spans is as close to only the HTTP request time and do the data collection afterwards
                     $childSpan->finish();
@@ -40,7 +51,7 @@ final class GuzzleTracingMiddleware
                     } elseif ($responseOrException instanceof \WPSentry\ScopedVendor\GuzzleHttp\Exception\RequestException) {
                         $response = $responseOrException->getResponse();
                     }
-                    $breadcrumbData = ['url' => (string) $request->getUri(), 'method' => $request->getMethod(), 'request_body_size' => $request->getBody()->getSize()];
+                    $breadcrumbData = ['url' => (string) $partialUri, 'method' => $request->getMethod(), 'request_body_size' => $request->getBody()->getSize(), 'http.query' => $request->getUri()->getQuery(), 'http.fragment' => $request->getUri()->getFragment()];
                     if (null !== $response) {
                         $childSpan->setStatus(\Sentry\Tracing\SpanStatus::createFromHttpStatusCode($response->getStatusCode()));
                         $breadcrumbData['status_code'] = $response->getStatusCode();

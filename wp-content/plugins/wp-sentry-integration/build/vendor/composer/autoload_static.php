@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInite6959121e58d048ae46f77b4be44fac4
+class ComposerStaticInit00bd21cf915002b6cdf2e37d8add9d2f
 {
     public static $files = array (
         'wp-sentry-7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
@@ -13,7 +13,6 @@ class ComposerStaticInite6959121e58d048ae46f77b4be44fac4
         'wp-sentry-9c67151ae59aff4788964ce8eb2a0f43' => __DIR__ . '/..' . '/clue/stream-filter/src/functions_include.php',
         'wp-sentry-8cff32064859f4559445b89279f3199c' => __DIR__ . '/..' . '/php-http/message/src/filters.php',
         'wp-sentry-c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
-        'wp-sentry-09f6b20656683369174dd6fa83b7e5fb' => __DIR__ . '/..' . '/symfony/polyfill-uuid/bootstrap.php',
         'fb4ca2d97fe7ba6af750497425204e70' => __DIR__ . '/..' . '/sentry/sentry/src/functions.php',
     );
 
@@ -40,7 +39,6 @@ class ComposerStaticInite6959121e58d048ae46f77b4be44fac4
         ),
         'S' => 
         array (
-            'Symfony\\Polyfill\\Uuid\\' => 22,
             'Symfony\\Polyfill\\Php80\\' => 23,
             'Sentry\\' => 7,
         ),
@@ -117,10 +115,6 @@ class ComposerStaticInite6959121e58d048ae46f77b4be44fac4
         array (
             0 => __DIR__ . '/..' . '/clue/stream-filter/src',
         ),
-        'Symfony\\Polyfill\\Uuid\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-uuid',
-        ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
@@ -175,6 +169,7 @@ class ComposerStaticInite6959121e58d048ae46f77b4be44fac4
         'Sentry\\Integration\\RequestFetcherInterface' => __DIR__ . '/..' . '/sentry/sentry/src/Integration/RequestFetcherInterface.php',
         'Sentry\\Integration\\RequestIntegration' => __DIR__ . '/..' . '/sentry/sentry/src/Integration/RequestIntegration.php',
         'Sentry\\Integration\\TransactionIntegration' => __DIR__ . '/..' . '/sentry/sentry/src/Integration/TransactionIntegration.php',
+        'Sentry\\Monolog\\BreadcrumbHandler' => __DIR__ . '/..' . '/sentry/sentry/src/Monolog/BreadcrumbHandler.php',
         'Sentry\\Monolog\\CompatibilityProcessingHandlerTrait' => __DIR__ . '/..' . '/sentry/sentry/src/Monolog/CompatibilityProcessingHandlerTrait.php',
         'Sentry\\Monolog\\Handler' => __DIR__ . '/..' . '/sentry/sentry/src/Monolog/Handler.php',
         'Sentry\\Options' => __DIR__ . '/..' . '/sentry/sentry/src/Options.php',
@@ -197,6 +192,7 @@ class ComposerStaticInite6959121e58d048ae46f77b4be44fac4
         'Sentry\\State\\HubInterface' => __DIR__ . '/..' . '/sentry/sentry/src/State/HubInterface.php',
         'Sentry\\State\\Layer' => __DIR__ . '/..' . '/sentry/sentry/src/State/Layer.php',
         'Sentry\\State\\Scope' => __DIR__ . '/..' . '/sentry/sentry/src/State/Scope.php',
+        'Sentry\\Tracing\\DynamicSamplingContext' => __DIR__ . '/..' . '/sentry/sentry/src/Tracing/DynamicSamplingContext.php',
         'Sentry\\Tracing\\GuzzleTracingMiddleware' => __DIR__ . '/..' . '/sentry/sentry/src/Tracing/GuzzleTracingMiddleware.php',
         'Sentry\\Tracing\\SamplingContext' => __DIR__ . '/..' . '/sentry/sentry/src/Tracing/SamplingContext.php',
         'Sentry\\Tracing\\Span' => __DIR__ . '/..' . '/sentry/sentry/src/Tracing/Span.php',
@@ -207,6 +203,8 @@ class ComposerStaticInite6959121e58d048ae46f77b4be44fac4
         'Sentry\\Tracing\\TraceId' => __DIR__ . '/..' . '/sentry/sentry/src/Tracing/TraceId.php',
         'Sentry\\Tracing\\Transaction' => __DIR__ . '/..' . '/sentry/sentry/src/Tracing/Transaction.php',
         'Sentry\\Tracing\\TransactionContext' => __DIR__ . '/..' . '/sentry/sentry/src/Tracing/TransactionContext.php',
+        'Sentry\\Tracing\\TransactionMetadata' => __DIR__ . '/..' . '/sentry/sentry/src/Tracing/TransactionMetadata.php',
+        'Sentry\\Tracing\\TransactionSource' => __DIR__ . '/..' . '/sentry/sentry/src/Tracing/TransactionSource.php',
         'Sentry\\Transport\\DefaultTransportFactory' => __DIR__ . '/..' . '/sentry/sentry/src/Transport/DefaultTransportFactory.php',
         'Sentry\\Transport\\HttpTransport' => __DIR__ . '/..' . '/sentry/sentry/src/Transport/HttpTransport.php',
         'Sentry\\Transport\\NullTransport' => __DIR__ . '/..' . '/sentry/sentry/src/Transport/NullTransport.php',
@@ -216,10 +214,10 @@ class ComposerStaticInite6959121e58d048ae46f77b4be44fac4
         'Sentry\\UserDataBag' => __DIR__ . '/..' . '/sentry/sentry/src/UserDataBag.php',
         'Sentry\\Util\\JSON' => __DIR__ . '/..' . '/sentry/sentry/src/Util/JSON.php',
         'Sentry\\Util\\PHPVersion' => __DIR__ . '/..' . '/sentry/sentry/src/Util/PHPVersion.php',
+        'Sentry\\Util\\SentryUid' => __DIR__ . '/..' . '/sentry/sentry/src/Util/SentryUid.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'Symfony\\Polyfill\\Php80\\Php80' => __DIR__ . '/..' . '/symfony/polyfill-php80/Php80.php',
         'Symfony\\Polyfill\\Php80\\PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/PhpToken.php',
-        'Symfony\\Polyfill\\Uuid\\Uuid' => __DIR__ . '/..' . '/symfony/polyfill-uuid/Uuid.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
         'WPSentry\\ScopedVendor\\Clue\\StreamFilter\\CallbackFilter' => __DIR__ . '/..' . '/clue/stream-filter/src/CallbackFilter.php',
@@ -269,6 +267,7 @@ class ComposerStaticInite6959121e58d048ae46f77b4be44fac4
         'WPSentry\\ScopedVendor\\Composer\\Installers\\MajimaInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/MajimaInstaller.php',
         'WPSentry\\ScopedVendor\\Composer\\Installers\\MakoInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/MakoInstaller.php',
         'WPSentry\\ScopedVendor\\Composer\\Installers\\MantisBTInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/MantisBTInstaller.php',
+        'WPSentry\\ScopedVendor\\Composer\\Installers\\MatomoInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/MatomoInstaller.php',
         'WPSentry\\ScopedVendor\\Composer\\Installers\\MauticInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/MauticInstaller.php',
         'WPSentry\\ScopedVendor\\Composer\\Installers\\MayaInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/MayaInstaller.php',
         'WPSentry\\ScopedVendor\\Composer\\Installers\\MediaWikiInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/MediaWikiInstaller.php',
@@ -359,6 +358,7 @@ class ComposerStaticInite6959121e58d048ae46f77b4be44fac4
         'WPSentry\\ScopedVendor\\GuzzleHttp\\Psr7\\StreamWrapper' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/StreamWrapper.php',
         'WPSentry\\ScopedVendor\\GuzzleHttp\\Psr7\\UploadedFile' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UploadedFile.php',
         'WPSentry\\ScopedVendor\\GuzzleHttp\\Psr7\\Uri' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Uri.php',
+        'WPSentry\\ScopedVendor\\GuzzleHttp\\Psr7\\UriComparator' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UriComparator.php',
         'WPSentry\\ScopedVendor\\GuzzleHttp\\Psr7\\UriNormalizer' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UriNormalizer.php',
         'WPSentry\\ScopedVendor\\GuzzleHttp\\Psr7\\UriResolver' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UriResolver.php',
         'WPSentry\\ScopedVendor\\GuzzleHttp\\Psr7\\Utils' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Utils.php',
@@ -574,9 +574,9 @@ class ComposerStaticInite6959121e58d048ae46f77b4be44fac4
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInite6959121e58d048ae46f77b4be44fac4::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInite6959121e58d048ae46f77b4be44fac4::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInite6959121e58d048ae46f77b4be44fac4::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit00bd21cf915002b6cdf2e37d8add9d2f::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit00bd21cf915002b6cdf2e37d8add9d2f::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit00bd21cf915002b6cdf2e37d8add9d2f::$classMap;
 
         }, null, ClassLoader::class);
     }
