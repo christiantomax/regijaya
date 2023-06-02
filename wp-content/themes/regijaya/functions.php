@@ -47,6 +47,8 @@ if(! function_exists( 'regijaya_setup' )) :
             wp_enqueue_script('regijaya-bootstrap-js', get_template_directory_uri().'/inc/cdn/bootstrap/js/bootstrap.bundle.min.js', array(), '5.1.3', false);
             wp_enqueue_script('regijaya-aos', get_template_directory_uri().'/inc/cdn/aos/aos.js', array(), $version, false);
             wp_enqueue_script('regijaya-swiper', get_template_directory_uri().'/inc/cdn/swiper/swiper-bundle.min.js', array(), '8.3.1', false);
+            wp_enqueue_script('regijaya-gsap-core', get_template_directory_uri().'/inc/cdn/gsap/gsap.min.js', array(), '3.11.5', false);
+            wp_enqueue_script('regijaya-gsap-scroll', get_template_directory_uri().'/inc/cdn/gsap/ScrollTrigger.min.js', array(), '3.11.5', false);
             wp_enqueue_script('regijaya-js', get_template_directory_uri().'/assets/js/main.js', array(), '5.1.3', false);
         
         }

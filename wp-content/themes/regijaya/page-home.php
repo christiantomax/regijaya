@@ -117,8 +117,9 @@ if (isset($_SESSION['lang'])) {
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-1 col-md-1 col-sm-1"></div>
-            <div class="col-lg-4 col-md-10 col-sm-10">
-                <div class="home-img-wrapper parallax mb-5" style=" background-image: url(<?= $home_about_image1; ?>);"></div>
+            <div class="col-lg-4 col-md-10 col-sm-10 wrapper-img">
+                <!-- <div class="gsap-img home-img-wrapper mb-5" style=" background-image: url(<?php //$home_about_image1; ?>);"></div> -->
+                <img class="gsap-img img-home1" src="<?= $home_about_image1; ?>"/>
             </div>
             <div class="col-lg-1 col-md-1 col-sm-1"></div>
             <div class="col-md-1 col-sm-1 mobile"></div>
@@ -148,10 +149,13 @@ if (isset($_SESSION['lang'])) {
                 </div>
             </div>
             <div class="col-lg-1 col-md-1 col-sm-1 "></div>
-            <div class="col-lg-3 col-md-4 col-sm-4">
-                <div class="square-wrapper">
-                    <div class="square-img-wrapper parallax mb-1" style="background-image: url(<?= $home_about_image2;?>);"><div class="square-content-img h1">AA</div></div>
-                </div>
+            <div class="col-lg-3 col-md-4 col-sm-4 wrapper-img-square"> 
+                <img class="gsap-img img-home2" src="<?= $home_about_image2;?>"/>
+                <!-- <div class="square-wrapper"> -->
+                    <!-- <div class="square-img-wrapper mb-1" style="background-image: url(<?php //$home_about_image2;?>);"> -->
+                        <!-- <div class="gsap-img square-content-img h1">AA</div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
             </div>
             <div class="col-lg-1 col-md-1 col-sm-1"></div>
         </div>

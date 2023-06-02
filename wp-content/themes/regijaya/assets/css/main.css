@@ -350,10 +350,29 @@ h1 {
   min-height: 75vh;
 }
 
-.home-img-wrapper {
-  padding-bottom: 10rem;
-  background-repeat: no-repeat;
-  background-size: cover;
+.gsap-img {
+  width: 100%;
+  /* position: absolute;
+  z-index: -1;
+  width: 100%; */
+}
+
+.wrapper-img {
+  position: relative;
+  height: 30vh;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  overflow: hidden;
+}
+
+.wrapper-img-square {
+  position: relative;
+  height: 60vh;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  overflow: hidden;
 }
 
 /*--------------------------------------------------------------
