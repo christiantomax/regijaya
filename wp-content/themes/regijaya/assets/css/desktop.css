@@ -166,10 +166,6 @@
   .swiper-container{
     height: var(--height-home-section);
   }
-
-  .home-img-wrapper {
-    /* background-position: calc(100% - 50%); */
-  }
   
 }
 

@@ -12,10 +12,10 @@
     $post_slug = $post->post_name;
 
     //local
-    // $header_footer_post_id = 10;
+    $header_footer_post_id = 10;
 
     //cloud
-    $header_footer_post_id = 48;
+    // $header_footer_post_id = 48;
 
     $header = 'regijaya_header_id';
 
