@@ -208,6 +208,18 @@
     left: 0;
     background: var(--color-default);
   }
+
+  .navbar-mobile {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+}
+
+@media (min-width: 320px) and (max-width: 425px) {
+  .header {
+    padding: 15px 5%;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -252,6 +264,9 @@
     margin-bottom : 1rem !important;
   }
 
+  .wrapper-img {
+    margin-bottom: 2rem;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -292,8 +307,13 @@
     /* transform: translateY(0px);
     transition: transform 0.2s linear; */
     position: fixed;
-    top:10%;
     width: 100%;
+    position: fixed;
+    top: 7%;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    padding-top: 10%;
   }
 
   .klien-content-header {

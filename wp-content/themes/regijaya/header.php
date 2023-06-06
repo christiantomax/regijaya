@@ -23,6 +23,17 @@
 
     $logo = wp_get_attachment_image_url(get_post_meta($header_footer_post_id,'header_logo_dark_theme', true));
 
+    $page = "Home";
+
+    if($post_slug == "about") $page = "Tentang Kami";
+    else if($post_slug == "kebijakan") $page = "Kebijakan Mutu, Lingkungan & K3"; 
+    else if($post_slug == "klien") $page = "Klien"; 
+    else if($post_slug == "kontak") $page = "Kontak"; 
+    else if($post_slug == "layanan") $page = "Layanan"; 
+    else if($post_slug == "layanan-detail") $page = "Layanan Detail"; 
+    else if($post_slug == "produk") $page = "Produk"; 
+    else if($post_slug == "sertifikat") $page = "Sertifikat & Penghargaan"; 
+
     if($post_slug == "home" || $post_slug == "klien") {
 
         $_SESSION['mode'] = 'light';
@@ -34,8 +45,19 @@
     if (isset($_SESSION['lang'])) {
         if($_SESSION['lang'] == 'eng'){
             $header = 'regijaya_header_eng';
+
+            if($post_slug == "about") $page = "About";
+            else if($post_slug == "kebijakan") $page = "Quality, Environtment & OHS Policy"; 
+            else if($post_slug == "klien") $page = "Client"; 
+            else if($post_slug == "kontak") $page = "Contact"; 
+            else if($post_slug == "layanan") $page = "Service"; 
+            else if($post_slug == "layanan-detail") $page = "Service Detail"; 
+            else if($post_slug == "produk") $page = "Product"; 
+            else if($post_slug == "sertifikat") $page = "Certificate & Award"; 
         }
     }
+
+    $title = $page."  |  Regi Jaya";
 
 ?>
 
@@ -61,6 +83,8 @@
     <!-- CSS -->
 
     <?php wp_head(); ?>
+
+    <title><?php echo $title; ?></title>
 
 </head> 
 
