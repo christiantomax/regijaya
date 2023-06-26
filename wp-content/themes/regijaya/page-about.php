@@ -331,7 +331,7 @@ if (isset($_SESSION['lang'])) {
             <div class="col-1 desktop"></div>
             <div class="col-10">
                 <div class="row py-3">
-                    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6 up-5 px-0">
+                    <div class="col-lg-5 col-md-5 col-sm-1 col-xs-1 up-5 px-0">
                         <!-- <div class="penghargaan-img-wrapper" data-aos="zoom-in">
                             <img src="<?php //$about_us_sertifikat_image;?>" class="img-fluid">
                         </div> -->
